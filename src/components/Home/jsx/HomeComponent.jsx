@@ -21,7 +21,7 @@ import { CardComponent } from '../../Card/CardComponent'
 
 import OliverPets from '../../../assets/img/OliverPets.png'
 import OliverPetsSplash from '../../../assets/img/splash.jpg'
-import OliverPetsHome from '../../../assets/img/home.jpg'
+import OliverPetsHome from '../../../assets/img/Home.jpg'
 import OliverPetsBrands from '../../../assets/img/brands.jpg'
 import OliverPetsProductList from '../../../assets/img/productList.jpg'
 import OliverPetsProductPage from '../../../assets/img/productPage.jpg'
@@ -47,9 +47,7 @@ export const HomeComponent = () => {
                 <SocialNerwork />
 
             </div>
-            {/* <div className='pt-3'>
-                <PersonalDescription />
-            </div> */}
+
             <div className='p-5'>
                 <h2 className={text__h2_teal_bold}>Jobs and Practice </h2>
                 <hr />
