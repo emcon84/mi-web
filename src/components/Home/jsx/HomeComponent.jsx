@@ -32,9 +32,9 @@ export const HomeComponent = () => {
                 <SocialNerwork />
 
             </div>
-            <div className='pt-3'>
+            {/* <div className='pt-3'>
                 <PersonalDescription />
-            </div>
+            </div> */}
             <div className='p-5'>
                 <h2 className={text__h2_teal_bold}>Jobs and Practice </h2>
                 <hr />
