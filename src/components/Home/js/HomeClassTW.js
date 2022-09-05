@@ -15,3 +15,10 @@ export const text__h2_teal = 'font-bold text-2xl  text-teal-500 pb-2'
 export const text__h2_teal_bold = 'font-bold text-2xl text-teal-500 pb-2'
 export const text__h2_white_bold = 'text-white text-xl pb-3 font-bold'
 export const text__h2_teal_bold_pt = 'text-xl text-teal-500 font-bold pt-3'
+
+//buttons 
+export const button_primary = 'inline-flex justify-center w-full items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+
+//collapse 
+export const collapse_title = 'collapse-title bg-accent text-primary-content peer-checked:bg-accent-focus peer-checked:text-secondary-content'
+export const collapse_content = 'collapse-content bg-accent text-primary-content peer-checked:bg-accent-focus peer-checked:text-secondary-content'

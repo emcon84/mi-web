@@ -55,7 +55,7 @@ export const jobsAndPractice = [
         href: 'https://journal-emcon84.vercel.app',
         img: 'https://res.cloudinary.com/dadqqe1wx/image/upload/v1662345559/my-site/JournalApp_j7lkpk.png',
         listTech: [{
-            technology: 'React, Redux, Database Firestore, Css, MaterialUI',
+            technology: 'React, Redux, Firestore, MaterialUI...',
             deploy: 'Vercel',
             link: ['https://journal-emcon84.vercel.app', 'demo'],
             code: ['https://github.com/emcon84/new-journal-app', 'code'],
