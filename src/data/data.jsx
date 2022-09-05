@@ -1,18 +1,23 @@
-import { FaReact, FaCss3Alt } from 'react-icons/fa'
+import { FaReact, FaCss3Alt, FaBootstrap } from 'react-icons/fa'
 import { BsFillTelephoneForwardFill, BsTelegram } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 import { IoLogoWhatsapp } from 'react-icons/io'
 import { DiJavascript1 } from 'react-icons/di'
 import { AiFillGithub, AiFillGitlab, AiFillHtml5, AiFillLinkedin } from 'react-icons/ai'
-import { SiTailwindcss } from 'react-icons/si'
+import { SiMaterialui, SiRedux, SiTailwindcss } from 'react-icons/si'
+import { TbBrandNextjs } from 'react-icons/tb'
 
 
 export const dataStack = [
     { id: 1, name: 'HTML5', icon: <AiFillHtml5 size={60} className='text-red-600' /> },
     { id: 2, name: 'CSS', icon: <FaCss3Alt size={60} className='text-blue-400' /> },
-    { id: 3, name: 'Javascript', icon: <DiJavascript1 size={60} className='text-yellow-500' /> },
-    { id: 4, name: 'React', icon: <FaReact size={60} className='text-blue-500' /> },
-    { id: 5, name: 'Tailwind', icon: <SiTailwindcss size={60} className='text-sky-500' /> },
+    { id: 3, name: 'Bootstrap', icon: <FaBootstrap size={60} className='text-violet-700' /> },
+    { id: 4, name: 'Tailwind', icon: <SiTailwindcss size={60} className='text-sky-500' /> },
+    { id: 5, name: 'MaterialUI', icon: <SiMaterialui size={60} className='text-sky-500' /> },
+    { id: 6, name: 'Javascript', icon: <DiJavascript1 size={60} className='text-yellow-500' /> },
+    { id: 7, name: 'React', icon: <FaReact size={60} className='text-blue-500' /> },
+    { id: 8, name: 'NextJs', icon: <TbBrandNextjs size={60} className='text-white' /> },
+    { id: 9, name: 'Redux', icon: <SiRedux size={60} className='text-violet-900' /> },
 ]
 
 export const dataContact = [
