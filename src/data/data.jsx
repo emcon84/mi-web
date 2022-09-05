@@ -44,7 +44,7 @@ export const jobsAndPractice = [
         listTech: [{
             technology: 'React',
             deploy: 'Github Pages',
-            link: ['https://journal-emcon84.vercel.app/auth/login', 'demo'],
+            link: ['https://emcon84.github.io/GifExpertApp/', 'demo'],
             code: ['https://github.com/emcon84/GifExpertApp', 'code'],
         }],
         titleDescription: 'Description',
