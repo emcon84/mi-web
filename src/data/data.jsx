@@ -40,7 +40,7 @@ export const jobsAndPractice = [
     {
         title: 'Gift App',
         href: 'https://emcon84.github.io/GifExpertApp/',
-        img: '../../src/assets/img/GiftApp.png',
+        img: 'https://res.cloudinary.com/dadqqe1wx/image/upload/v1662345560/my-site/GiftApp_ecahvq.png',
         listTech: [{
             technology: 'React',
             deploy: 'Github Pages',
@@ -53,7 +53,7 @@ export const jobsAndPractice = [
     {
         title: 'Notes App',
         href: 'https://journal-emcon84.vercel.app',
-        img: '../../src/assets/img/JournalApp.png',
+        img: 'https://res.cloudinary.com/dadqqe1wx/image/upload/v1662345559/my-site/JournalApp_j7lkpk.png',
         listTech: [{
             technology: 'React, Redux, Database Firestore, Css, MaterialUI',
             deploy: 'Vercel',
@@ -66,7 +66,7 @@ export const jobsAndPractice = [
     {
         title: 'Calendar App',
         href: 'https://emcon-calendar.vercel.app/',
-        img: '../../src/assets/img/CalendarApp.png',
+        img: 'https://res.cloudinary.com/dadqqe1wx/image/upload/v1662345559/my-site/CalendarApp_hguf28.png',
         listTech: [{
             technology: 'React, Redux, Bootstrap, Css',
             deploy: 'Vercel',
