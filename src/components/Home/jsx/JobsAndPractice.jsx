@@ -12,7 +12,7 @@ export const JobsAndPractice = () => {
     return (
         <>
             {jobsAndPractice.map((job) =>
-                <div className="col pb-5" key={job}>
+                <div className="col pb-5">
                     <CardComponent>
                         <h2 className={text__h2_white_bold}>{job.title}</h2>
                         <div className='pb-5'>
@@ -27,7 +27,7 @@ export const JobsAndPractice = () => {
                         </div>
                         <hr />
                         {job.listTech.map((list) =>
-                            <ul className='py-3' key={list}>
+                            <ul className='py-3'>
                                 <li className='text-teal-500'>Technology: {list.technology} </li>
                                 <li className='text-teal-500'>Deploy: {list.deploy}</li>
                             </ul>
