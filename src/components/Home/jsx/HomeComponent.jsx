@@ -1,5 +1,6 @@
 //import class from Tailwind
 import {
+    button_primary,
     container,
     grid__col_3,
     text__h2_teal_bold,
@@ -24,10 +25,14 @@ import OliverPetsHome from '../../../assets/img/home.jpg'
 import OliverPetsBrands from '../../../assets/img/brands.jpg'
 import OliverPetsProductList from '../../../assets/img/productList.jpg'
 import OliverPetsProductPage from '../../../assets/img/productPage.jpg'
+import Curriculum from '../../../assets/doc/Curriculum.pdf'
 
 
 export const HomeComponent = () => {
 
+    function handleClick() {
+        window.open(Curriculum, "_blank");
+    }
 
     return (
         <div className={container}>
@@ -135,6 +140,28 @@ export const HomeComponent = () => {
             </div>
             <div className={grid__col_3}>
                 <JobsAndPractice />
+            </div>
+            <div className='py-10'>
+                <CardComponent>
+                    <div className="grid md:grid-cols-3 py-5">
+                        <div className="col"></div>
+                        <div className="col">
+                            <div className='w-100'>
+                                <a href='#'>
+                                    <button
+                                        onClick={handleClick}
+                                        type="button"
+                                        className={button_primary}
+                                    >
+                                        Download CV
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <div className="col"></div>
+                    </div>
+                </CardComponent>
+
             </div>
         </div>
     )
