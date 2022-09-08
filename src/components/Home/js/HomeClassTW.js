@@ -6,7 +6,7 @@ export const flex__col_center = 'flex flex-col items-center'
 
 //grid
 export const grid__col_3 = 'grid grid-cols gap-4 pt-3 lg:grid-cols-3'
-export const grid__col_5 = 'grid grid-cols-5 gap-4 pt-5'
+export const grid__col_5 = 'grid grid-cols-4 gap-4 pt-5 md:grid-cols-5'
 
 //title and text
 export const title__h1 = 'text-3xl font-bold text-slate-300'
