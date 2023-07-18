@@ -62,15 +62,11 @@ export const HomeComponent = () => {
                             <img src={OliverPets} alt="" />
                         </div>
                         <div className="col">
-<<<<<<< HEAD
                             <p>Ecommerce system for a startup company from Argentina.
 
                                 I am make the mobile model based on a custom figma design. Working with React Native.
                                 Make the layout of the web with React for both its mobile and desktop design. On the web, StyledComponts is used as a CSS library.
                             </p>
-=======
-                            <p className="text-white">Ecommerce system for a startup company from Argentina. In this project my job was to integrate analytics functionalities, such as Clevertap, google analytics. Make the mobile model based on a custom figma design. Working with React Native. Make the layout of the web with React for both its mobile and desktop design. On the web, StyledComponts is used as a CSS library. It is still in Development, and it is my current job where I have been working for 8 months.</p>
->>>>>>> 25bebff0bec7df5f9fa59a3d835c326b672d1a6c
                             <br />
                             <div className="grid grid-cols-6 gap-4">
 
