@@ -139,8 +139,8 @@ export const HomeComponent = () => {
                             <br />
                             <div>
 
-                                <div className="col">
-                                    <iframe width="500" height="250" src="https://www.youtube.com/embed/v86jLwfkeMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <div className="col flex justify-center">
+                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/v86jLwfkeMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
 
                             </div>
@@ -158,8 +158,8 @@ export const HomeComponent = () => {
                             <br />
                             <div>
 
-                                <div className="col">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/lohjmpFMJuM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <div className="col flex justify-center">
+                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/lohjmpFMJuM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
 
                             </div>
