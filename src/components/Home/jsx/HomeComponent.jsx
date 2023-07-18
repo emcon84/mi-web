@@ -69,12 +69,6 @@ export const HomeComponent = () => {
                             </p>
                             <br />
                             <div className="grid grid-cols-6 gap-4">
-
-                                <div className="col">
-                                    <a href="#my-modal-1">
-                                        <img src={OliverPetsSplash} alt="" />
-                                    </a>
-                                </div>
                                 <div className="col">
                                     <a href="#my-modal-2">
                                         <img src={OliverPetsHome} alt="" />
@@ -99,6 +93,38 @@ export const HomeComponent = () => {
                         </div>
                     </div>
                 </CardComponent>
+                <div className="modal" id="my-modal-2">
+                    <div className="modal-box">
+                        <img src={OliverPetsHome} alt="" />
+                        <div className="modal-action">
+                            <a href="#" className="btn">Close!</a>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal" id="my-modal-3">
+                    <div className="modal-box">
+                        <img src={OliverPetsBrands} alt="" />
+                        <div className="modal-action">
+                            <a href="#" className="btn">Close!</a>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal" id="my-modal-4">
+                    <div className="modal-box">
+                        <img src={OliverPetsProductList} alt="" />
+                        <div className="modal-action">
+                            <a href="#" className="btn">Close!</a>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal" id="my-modal-5">
+                    <div className="modal-box">
+                        <img src={OliverPetsProductPage} alt="" />
+                        <div className="modal-action">
+                            <a href="#" className="btn">Close!</a>
+                        </div>
+                    </div>
+                </div>
                 <CardComponent>
                     <h2 className={text__h2_white_bold}>Notimation - Software Factory</h2>
                     <div className="grid grid-cols gap-8 md:grid-cols-2">
