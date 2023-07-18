@@ -27,6 +27,7 @@ import OliverPetsBrands from '../../../assets/img/brands.jpg'
 import OliverPetsProductList from '../../../assets/img/productList.jpg'
 import OliverPetsProductPage from '../../../assets/img/productPage.jpg'
 import UiToolNotimation from '../../../assets/img/imgUiTool.png'
+import Agents from '../../../assets/img/Agent.png'
 import Curriculum from '../../../assets/doc/Curriculum.pdf'
 
 
@@ -126,7 +127,7 @@ export const HomeComponent = () => {
                     </div>
                 </div>
                 <CardComponent>
-                    <h2 className={text__h2_white_bold}>Notimation - Software Factory</h2>
+                    <h2 className={text__h2_white_bold}>Notimation - Software Factory - UiTool</h2>
                     <div className="grid grid-cols gap-8 md:grid-cols-2">
                         <div className="col">
                             <img src={UiToolNotimation} alt="UiToolNotimation" />
@@ -134,10 +135,31 @@ export const HomeComponent = () => {
                         <div className="col">
                             <p>Software development company, where I have been working as a frontend developer for the past 2 years. I design screens from scratch using Figma, create prototypes, and write code using various technologies. My main focus has been on React, Next.js, and frameworks like Tailwind CSS. I also use Redux Toolkit as a state manager and React DnD for Drag and Drop functionality.</p>
                             <br />
+                            <p><strong>UiTool</strong>  is a software for creating web templates, emails, and AI-embedded chatbots. In this project, we worked on designing and developing the entire software, starting from the customized UI in Figma, creating icons and all components using Atomic Design, and then translating everything into code using Next.js, Redux Toolkit, and Tailwind.</p>
+                            <br />
                             <div>
 
                                 <div className="col">
                                     <iframe width="500" height="250" src="https://www.youtube.com/embed/v86jLwfkeMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </CardComponent>
+                <CardComponent>
+                    <h2 className={text__h2_white_bold}>Notimation - Software Factory - Agent</h2>
+                    <div className="grid grid-cols gap-8 md:grid-cols-2">
+                        <div className="col">
+                            <img src={Agents} alt="UiToolNotimation" />
+                        </div>
+                        <div className="col">
+                            <p> <strong>Agents</strong> is an application for customer service agents, where they handle incoming contacts created through websockets. The entire interface was built using NextUi and Next.js. Redux was also utilized for state management, and connections to AI-powered bots were established to provide intelligent responses.</p>
+                            <br />
+                            <div>
+
+                                <div className="col">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/lohjmpFMJuM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
 
                             </div>
