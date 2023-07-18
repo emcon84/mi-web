@@ -9,15 +9,15 @@ import { TbBrandNextjs } from 'react-icons/tb'
 
 
 export const dataStack = [
-    { id: 1, name: 'HTML5', icon: <AiFillHtml5 size={60} className='text-red-600' /> },
-    { id: 2, name: 'CSS', icon: <FaCss3Alt size={60} className='text-blue-400' /> },
-    { id: 3, name: 'Bootstrap', icon: <FaBootstrap size={60} className='text-violet-700' /> },
-    { id: 4, name: 'Tailwind', icon: <SiTailwindcss size={60} className='text-sky-500' /> },
-    { id: 5, name: 'MaterialUI', icon: <SiMaterialui size={60} className='text-sky-500' /> },
-    { id: 6, name: 'Javascript', icon: <DiJavascript1 size={60} className='text-yellow-500' /> },
-    { id: 7, name: 'React', icon: <FaReact size={60} className='text-blue-500' /> },
-    { id: 8, name: 'NextJs', icon: <TbBrandNextjs size={60} className='text-white' /> },
-    { id: 9, name: 'Redux', icon: <SiRedux size={60} className='text-violet-900' /> },
+    { id: 1, name: 'HTML5', icon: <div className="tooltip" data-tip="8 years experience"><AiFillHtml5 size={60} className='text-red-600 ' /></div> },
+    { id: 2, name: 'CSS', icon: <div className="tooltip" data-tip="8 years experience"><FaCss3Alt size={60} className='text-blue-400' /></div> },
+    { id: 3, name: 'Bootstrap', icon: <div className="tooltip" data-tip="8 years experience"><FaBootstrap size={60} className='text-violet-700' /></div> },
+    { id: 4, name: 'Tailwind', icon: <div className="tooltip" data-tip="5 years experience"><SiTailwindcss size={60} className='text-sky-500' /></div> },
+    { id: 5, name: 'MaterialUI', icon: <div className="tooltip" data-tip="4 years experience"><SiMaterialui size={60} className='text-sky-500' /></div> },
+    { id: 6, name: 'Javascript', icon: <div className="tooltip" data-tip="4 years experience"><DiJavascript1 size={60} className='text-yellow-500' /></div> },
+    { id: 7, name: 'React', icon: <div className="tooltip" data-tip="6 years experience"> <FaReact size={60} className='text-blue-500' /></div> },
+    { id: 8, name: 'NextJs', icon: <div className="tooltip" data-tip="3 years experience"><TbBrandNextjs size={60} className='text-white' /></div> },
+    { id: 9, name: 'Redux', icon: <div className="tooltip" data-tip="3 years experience"><SiRedux size={60} className='text-violet-900' /></div> },
 ]
 
 export const dataContact = [
@@ -42,19 +42,7 @@ export const dataPersonalDescripcion = [
 ]
 
 export const jobsAndPractice = [
-    {
-        title: 'Gift App',
-        href: 'https://emcon84.github.io/GifExpertApp/',
-        img: 'https://res.cloudinary.com/dadqqe1wx/image/upload/v1662345560/my-site/GiftApp_ecahvq.png',
-        listTech: [{
-            technology: 'React',
-            deploy: 'Github Pages',
-            link: ['https://emcon84.github.io/GifExpertApp/', 'demo'],
-            code: ['https://github.com/emcon84/GifExpertApp', 'code'],
-        }],
-        titleDescription: 'Description',
-        description: 'Application creation practice with React, connecting to an Api, to practice data consumption. Use of hooks and custom hooks to build the application as a learning method.'
-    },
+
     {
         title: 'Notes App',
         href: 'https://journal-emcon84.vercel.app',

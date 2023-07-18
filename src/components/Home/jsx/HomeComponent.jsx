@@ -2,6 +2,7 @@
 import {
     button_primary,
     container,
+    grid__col_2,
     grid__col_3,
     text__h2_teal_bold,
     text__h2_white_bold,
@@ -25,6 +26,7 @@ import OliverPetsHome from '../../../assets/img/Home.jpg'
 import OliverPetsBrands from '../../../assets/img/brands.jpg'
 import OliverPetsProductList from '../../../assets/img/productList.jpg'
 import OliverPetsProductPage from '../../../assets/img/productPage.jpg'
+import UiToolNotimation from '../../../assets/img/imgUiTool.png'
 import Curriculum from '../../../assets/doc/Curriculum.pdf'
 
 
@@ -38,7 +40,7 @@ export const HomeComponent = () => {
         <div className={container}>
             <div className='nav__home'>
                 <h1 className={title__h1}>Emiliano Conti</h1>
-                <p className='text-slate-300'>Frontend Developer</p>
+                <p className='text-slate-300'>Fullstack Developer</p>
             </div>
             <div className={grid__col_3}>
 
@@ -49,7 +51,7 @@ export const HomeComponent = () => {
             </div>
 
             <div className='p-5'>
-                <h2 className={text__h2_teal_bold}>Jobs and Practice </h2>
+                <h2 className={text__h2_teal_bold}>Experience</h2>
                 <hr />
             </div>
             <div>
@@ -60,7 +62,11 @@ export const HomeComponent = () => {
                             <img src={OliverPets} alt="" />
                         </div>
                         <div className="col">
-                            <p>Ecommerce system for a startup company from Argentina. In this project my job was to integrate analytics functionalities, such as Clevertap, google analytics. Make the mobile model based on a custom figma design. Working with React Native. Make the layout of the web with React for both its mobile and desktop design. On the web, StyledComponts is used as a CSS library. It is still in Development, and it is my current job where I have been working for 8 months.</p>
+                            <p>Ecommerce system for a startup company from Argentina.
+
+                                I am make the mobile model based on a custom figma design. Working with React Native.
+                                Make the layout of the web with React for both its mobile and desktop design. On the web, StyledComponts is used as a CSS library.
+                            </p>
                             <br />
                             <div className="grid grid-cols-6 gap-4">
 
@@ -93,50 +99,32 @@ export const HomeComponent = () => {
                         </div>
                     </div>
                 </CardComponent>
-                <div className="modal" id="my-modal-1">
-                    <div className="modal-box">
-                        <img src={OliverPetsSplash} alt="" />
-                        <div className="modal-action">
-                            <a href="#" className="btn">Close!</a>
+                <CardComponent>
+                    <h2 className={text__h2_white_bold}>Notimation - Software Factory</h2>
+                    <div className="grid grid-cols gap-8 md:grid-cols-2">
+                        <div className="col">
+                            <img src={UiToolNotimation} alt="UiToolNotimation" />
                         </div>
-                    </div>
-                </div>
-                <div className="modal" id="my-modal-2">
-                    <div className="modal-box">
-                        <img src={OliverPetsHome} alt="" />
-                        <div className="modal-action">
-                            <a href="#" className="btn">Close!</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="modal" id="my-modal-3">
-                    <div className="modal-box">
-                        <img src={OliverPetsBrands} alt="" />
-                        <div className="modal-action">
-                            <a href="#" className="btn">Close!</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="modal" id="my-modal-4">
-                    <div className="modal-box">
-                        <img src={OliverPetsProductList} alt="" />
-                        <div className="modal-action">
-                            <a href="#" className="btn">Close!</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="modal" id="my-modal-5">
-                    <div className="modal-box">
-                        <img src={OliverPetsProductPage} alt="" />
-                        <div className="modal-action">
-                            <a href="#" className="btn">Close!</a>
-                        </div>
-                    </div>
-                </div>
+                        <div className="col">
+                            <p>Software development company, where I have been working as a frontend developer for the past 2 years. I design screens from scratch using Figma, create prototypes, and write code using various technologies. My main focus has been on React, Next.js, and frameworks like Tailwind CSS. I also use Redux Toolkit as a state manager and React DnD for Drag and Drop functionality.</p>
+                            <br />
+                            <div>
 
+                                <div className="col">
+                                    <iframe width="500" height="250" src="https://www.youtube.com/embed/v86jLwfkeMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </CardComponent>
 
             </div>
-            <div className={grid__col_3}>
+            <div className='p-5'>
+                <h2 className={text__h2_teal_bold}>Practice and Learning</h2>
+                <hr />
+            </div>
+            <div className={grid__col_2}>
                 <JobsAndPractice />
             </div>
             <div className='py-10'>
