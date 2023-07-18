@@ -14,7 +14,7 @@ export const dataStack = [
     { id: 3, name: 'Bootstrap', icon: <div className="tooltip" data-tip="8 years experience"><FaBootstrap size={60} className='text-violet-700' /></div> },
     { id: 4, name: 'Tailwind', icon: <div className="tooltip" data-tip="5 years experience"><SiTailwindcss size={60} className='text-sky-500' /></div> },
     { id: 5, name: 'MaterialUI', icon: <div className="tooltip" data-tip="4 years experience"><SiMaterialui size={60} className='text-sky-500' /></div> },
-    { id: 6, name: 'Javascript', icon: <div className="tooltip" data-tip="4 years experience"><DiJavascript1 size={60} className='text-yellow-500' /></div> },
+    { id: 6, name: 'Javascript', icon: <div className="tooltip" data-tip="8 years experience"><DiJavascript1 size={60} className='text-yellow-500' /></div> },
     { id: 7, name: 'React', icon: <div className="tooltip" data-tip="6 years experience"> <FaReact size={60} className='text-blue-500' /></div> },
     { id: 8, name: 'NextJs', icon: <div className="tooltip" data-tip="3 years experience"><TbBrandNextjs size={60} className='text-white' /></div> },
     { id: 9, name: 'Redux', icon: <div className="tooltip" data-tip="3 years experience"><SiRedux size={60} className='text-violet-900' /></div> },
