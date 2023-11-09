@@ -58,6 +58,8 @@ export const HomeComponent = () => {
             <div>
                 <CardComponent>
                     <h2 className={text__h2_white_bold}>Oliver Pets - Ecommerce</h2>
+                    <hr />
+                    <br />
                     <div className="grid grid-cols gap-8 md:grid-cols-2">
                         <div className="col">
                             <img src={OliverPets} alt="" />
@@ -128,9 +130,14 @@ export const HomeComponent = () => {
                 </div>
                 <CardComponent>
                     <h2 className={text__h2_white_bold}>Notimation - Software Factory - UiTool</h2>
+                    <hr />
+                    <br />
                     <div className="grid grid-cols gap-8 md:grid-cols-2">
                         <div className="col">
-                            <img src={UiToolNotimation} alt="UiToolNotimation" />
+
+                            <div className="col flex justify-center">
+                                <iframe width="100%" height="360" src="https://www.youtube.com/embed/v86jLwfkeMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
                         </div>
                         <div className="col">
                             <p>Software development company, where I have been working as a frontend developer for the past 2 years. I design screens from scratch using Figma, create prototypes, and write code using various technologies. My main focus has been on React, Next.js, and frameworks like Tailwind CSS. I also use Redux Toolkit as a state manager and React DnD for Drag and Drop functionality.</p>
@@ -139,9 +146,6 @@ export const HomeComponent = () => {
                             <br />
                             <div>
 
-                                <div className="col flex justify-center">
-                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/v86jLwfkeMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                </div>
 
                             </div>
                         </div>
@@ -149,18 +153,19 @@ export const HomeComponent = () => {
                 </CardComponent>
                 <CardComponent>
                     <h2 className={text__h2_white_bold}>Notimation - Software Factory - Agent</h2>
+                    <hr />
+                    <br />
                     <div className="grid grid-cols gap-8 md:grid-cols-2">
                         <div className="col">
-                            <img src={Agents} alt="UiToolNotimation" />
+                            <div className="col flex justify-center">
+                                <iframe width="100%" height="360" src="https://www.youtube.com/embed/lohjmpFMJuM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
                         </div>
                         <div className="col">
                             <p> <strong>Agents</strong> is an application for customer service agents, where they handle incoming contacts created through websockets. The entire interface was built using NextUi and Next.js. Redux was also utilized for state management, and connections to AI-powered bots were established to provide intelligent responses.</p>
                             <br />
                             <div>
 
-                                <div className="col flex justify-center">
-                                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/lohjmpFMJuM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                </div>
 
                             </div>
                         </div>
