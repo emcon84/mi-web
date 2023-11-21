@@ -5,7 +5,7 @@ export const flex__center_teal = 'flex items-center text-teal-500'
 export const flex__col_center = 'flex flex-col items-center'
 
 //grid
-export const grid__col_2 = 'grid grid-cols-2 gap-2 pt-3 lg:grid-cols-2'
+export const grid__col_2 = 'grid grid-cols-2 gap-2 pt-3 lg:grid-cols-2 xs:grid-cols-1 '
 export const grid__col_3 = 'grid grid-cols gap-4 pt-3 lg:grid-cols-3'
 export const grid__col_5 = 'grid grid-cols-4 gap-4 pt-5 md:grid-cols-5'
 

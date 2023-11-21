@@ -177,7 +177,7 @@ export const HomeComponent = () => {
                 <h2 className={text__h2_teal_bold}>Practice and Learning</h2>
                 <hr />
             </div>
-            <div className={grid__col_2}>
+            <div className='sm:grid sm:grid-cols-2'>
                 <JobsAndPractice />
             </div>
             <div className='py-10'>
