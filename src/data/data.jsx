@@ -28,9 +28,9 @@ export const dataContact = [
 ]
 
 export const dataSocialNetwork = [
-    { name: 'Linkedin', icon: <AiFillLinkedin size={60} className='text-blue-800' />, href: 'https://www.linkedin.com/in/emiliano-conti/' },
-    { name: 'Github', icon: <AiFillGithub size={60} className='text-blue-800' />, href: 'https://github.com/emcon84' },
-    { name: 'Gitlab', icon: <AiFillGitlab size={60} className='text-blue-800' />, href: 'https://gitlab.com/emcon84' },
+    { name: 'Linkedin', icon: <AiFillLinkedin size={60} className='text-[#2968ae]' />, href: 'https://www.linkedin.com/in/emiliano-conti/' },
+    { name: 'Github', icon: <AiFillGithub size={60} className='text-[#ADBAC7]' />, href: 'https://github.com/emcon84' },
+    { name: 'Gitlab', icon: <AiFillGitlab size={60} className='text-orange-500' />, href: 'https://gitlab.com/emcon84' },
 ]
 
 export const dataPersonalDescripcion = [
