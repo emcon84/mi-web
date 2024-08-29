@@ -1,4 +1,4 @@
-import { FaReact, FaCss3Alt, FaBootstrap } from 'react-icons/fa'
+import { FaReact, FaCss3Alt, FaBootstrap, FaNodeJs } from 'react-icons/fa'
 import { BsFillTelephoneForwardFill, BsTelegram } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 import { IoLogoWhatsapp } from 'react-icons/io'
@@ -18,6 +18,7 @@ export const dataStack = [
     { id: 7, name: 'React', icon: <div className="tooltip" data-tip="6 years experience"> <FaReact size={60} className='text-blue-500' /></div> },
     { id: 8, name: 'NextJs', icon: <div className="tooltip" data-tip="3 years experience"><TbBrandNextjs size={60} className='text-white' /></div> },
     { id: 9, name: 'Redux', icon: <div className="tooltip" data-tip="3 years experience"><SiRedux size={60} className='text-violet-900' /></div> },
+    { id: 10, name: 'NodeJS', icon: <div className="tooltip" data-tip="5 years experience"><FaNodeJs size={60} className='text-green-500' /></div> },
 ]
 
 export const dataContact = [
