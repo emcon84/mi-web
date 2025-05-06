@@ -1,23 +1,24 @@
 import React from 'react'
-import { dataContact } from '../../../data/data'
+import { BsFillTelephoneForwardFill, BsTelegram } from 'react-icons/bs'
+import { MdEmail } from 'react-icons/md'
+import { IoLogoWhatsapp } from 'react-icons/io'
 import { CardComponent } from '../../Card/CardComponent'
 import { flex__center_teal, text__h2_teal_bold, text__white_bold } from '../js/HomeClassTW'
 
 export const Contact = () => {
     return (
-        <CardComponent>
-            <h2 className={text__h2_teal_bold}>Contact</h2>
-            <hr />
-            <ul className='py-3'>
-                {dataContact.map((contact) =>
-                    <li className={text__white_bold} key={contact.name}>
-                        <a href={contact.href} className={flex__center_teal}>
-                            {contact.icon}{contact.name}
-                        </a>
-                    </li>
-                )}
+        <div className='h-screen text-align-center flex flex-col items-center justify-center bg-slate-800 text-white'>
+            <h1 className='text-4xl'>Contacto</h1>
+            <div className='border-2 border-white rounded-lg p-4 mt-10'>       
+                <ul className='py-3 flex'>
+                    <li><a href="mailto:emcon84@gmail.com">
+            <MdEmail className='text-white mr-10' size={32} />
+            
+        </a></li>
+                    <li><IoLogoWhatsapp className='text-white mr-3' size={38} /></li>                
+                </ul>
+            </div>
 
-            </ul>
-        </CardComponent>
+        </div>
     )
 }
