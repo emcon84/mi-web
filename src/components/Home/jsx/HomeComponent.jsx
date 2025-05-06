@@ -38,7 +38,7 @@ export const HomeComponent = () => {
       className="h-screen text-align-center flex flex-col items-center justify-center bg-slate-800 text-white text-xl lg:text-4xl"
     >
       <div className='flex items-center'>
-        <img src="./src/assets/img/yo.jpeg" alt="Emiliano Conti" className='w-20 h-20 lg:w-32 lg:h-32 rounded-full m-8' />
+        <img src="./assets/img/yo.jpeg" alt="Emiliano Conti" className='w-20 h-20 lg:w-32 lg:h-32 rounded-full m-8' />
         <div>
           <h1 className='text-lg md:text-4xl'> Emiliano Conti</h1>     
           <h2 className='text-sm md:text-2xl pt-3'>Software Engineer</h2>
