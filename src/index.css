@@ -4,6 +4,8 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    overflow-y: hidden;
 }
 
 hr {
