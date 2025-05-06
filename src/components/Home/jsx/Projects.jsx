@@ -19,25 +19,25 @@ export const Projects = () => {
     {
       name: 'UI Tool',
       company: 'Notimation',
-      image: './src/assets/img/imgUiTool.png',
+      image: '/img/imgUiTool.png',
       description: 'Un proyecto desafiante. Desde el punto inicial, la idea fue ambisiosa. Este proyecto es un creador de templates para envios emails, landings, bots templates conectados a IAs, para ayudar al usuario, a crear un ecosistema de comunicación unificado. El proyecto fue desarrollado en React y Next.js con Tailwind CSS, y NextUI.',
     },
     {
       name: 'Agent',
       company: 'Notimation',
-      image: './src/assets/img/Agent.png',
+      image: '/img/Agent.png',
       description: 'Sistema de gestion de soporte para Notimation. Agentes conectados a una plataforma para contestar chats provenientes de una chatbot iniciado por un usuario. Una vez el user pedia hablar con una agente, el sistema avisaba a un agente en linea para que tome el requerimiento y comenzaba a chatear en tiempo real con el cliente.  El proyecto fue desarrollado en React y Next.js con Tailwind CSS, y NextUI. Para el chat se utilizo Socket IO.',
     },
     {
       name: 'ABM admin',
       company: 'Personal',
-      image: './src/assets/img/dashboard.png',
+      image: '/img/dashboard.png',
       description: 'Proyecto de sistema de Stock para pequeñas empresas y negocios familiares. Desarrollado con React y CSS customizado para el proyecto',
     },
     {
       name: 'Oliver Pets Web',
       company: 'Oliver Pets',
-      image: './src/assets/img/OliverPets.png',
+      image: '/img/OliverPets.png',
       description: 'Sistema para una startup de Argentina. Se actualizo el sitio web de la empresa, utilizando Reactjs y StyledComponents. Se desarrollo tanto un front web como una aplicacion mobile con React Native. Ademas en esta empresa se mantuvo un panel admin en React. Este trabajo fue desarollado por un equipo de personas tanto frontend como backend, atendiendo a los requerimientos de la empresa. El proyecto se encuentra en produccion en el momento.',
     },    
   ];
