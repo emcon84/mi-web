@@ -14,12 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <a href="mailto:emcon84@gmail.com" target="_blank">
             <MdEmail className="text-white mr-10" size={24} />
           </a>
-        </li>
-        <li>
-          <a href="https://wa.me/3482445015" target="_blank">
-            <IoLogoWhatsapp className="text-white mr-10" size={24} />
-          </a>
-        </li>
+        </li>        
         <li>
           <a href="https://www.linkedin.com/in/emiliano-conti/" target="_blank">
             <IoLogoLinkedin className="text-white" size={24} />

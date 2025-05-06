@@ -1,6 +1,7 @@
 //import class from Tailwind
 import React from 'react';
 import { motion } from "framer-motion";
+
 import {
   button_primary,
   container,
@@ -21,6 +22,7 @@ import "../css/HomeStyles.css";
 // import { JobsAndPractice } from "./JobsAndPractice";
 
 import Curriculum from "../../../assets/doc/Curriculum.pdf";
+import { BsMouse } from 'react-icons/bs';
 // import OliverPetsHome from "../../../assets/img/Home.jpg";
 // import OliverPets from "../../../assets/img/OliverPets.png";
 // import OliverPetsBrands from "../../../assets/img/brands.jpg";
@@ -44,6 +46,14 @@ export const HomeComponent = () => {
           <h2 className='text-sm md:text-2xl pt-3'>Software Engineer</h2>
         </div>
       </div>
+
+      <motion.div
+  initial={{ y: 0 }}
+  animate={{ y: [-10, 0] }}
+  transition={{ duration: 1.5, repeat: Infinity }}
+>
+  <BsMouse />
+</motion.div>
 
   </motion.section>
   );
