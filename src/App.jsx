@@ -17,6 +17,7 @@ function App() {
   const [index, setIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
 
   useEffect(() => {
 
@@ -35,35 +36,39 @@ function App() {
       setTimeout(() => setIsAnimating(false), 1000)
     }
 
-    const handleTouchMove = (e) => {
-
-      if (isAnimating) return
-
-      const touch = e.touches[0]
-      const deltaY = touch.clientY - touchStart.clientY
-
-      if (deltaY > 0 && index < sections.length - 1) {
-        setIndex((prev) => prev + 1)
-      } else if (deltaY < 0 && index > 0) {
-        setIndex((prev) => prev - 1)
-      }
-
-      setIsAnimating(true)
-      setTimeout(() => setIsAnimating(false), 1000)
-    }
-
     const handleTouchStart = (e) => {
       setTouchStart(e.touches[0].clientY)
     }
 
+    const handleTouchMove = (e) => {
+      setTouchEnd(e.touches[0].clientY)
+    }
+
+    const handleTouchEnd = () => {
+      if (touchStart && touchEnd) {
+        const deltaY = touchEnd - touchStart
+        if (deltaY > 50 && index < sections.length - 1) {
+          setIndex((prev) => prev + 1)
+        } else if (deltaY < -50 && index > 0) {
+          setIndex((prev) => prev - 1)
+        }
+        setIsAnimating(true)
+        setTimeout(() => setIsAnimating(false), 1000)
+      }
+      setTouchStart(null)
+      setTouchEnd(null)
+    }
+
     window.addEventListener("wheel", handleWheel)
-    document.addEventListener("touchmove", handleTouchMove)
     document.addEventListener("touchstart", handleTouchStart)
+    document.addEventListener("touchmove", handleTouchMove)
+    document.addEventListener("touchend", handleTouchEnd)
 
     return () => {
       window.removeEventListener("wheel", handleWheel)
-      document.removeEventListener("touchmove", handleTouchMove)
       document.removeEventListener("touchstart", handleTouchStart)
+      document.removeEventListener("touchmove", handleTouchMove)
+      document.removeEventListener("touchend", handleTouchEnd)
     }
   }, [index, isAnimating])
 
