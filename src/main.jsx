@@ -7,7 +7,7 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <div className="fixed top-10 z-50 w-full flex justify-center flex-col items-center">      
+    <div className="fixed top-20 z-50 w-full flex justify-center flex-col items-center">      
       <ul className="py-3 flex justify-center w-full">
         <li>
           <a href="mailto:emcon84@gmail.com" target="_blank">
