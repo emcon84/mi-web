@@ -45,7 +45,7 @@ export const Projects = () => {
       company: 'Grupo Oslo',
       image: '/img/grupo_oslo.png',
       description: ' Este landing fue creado para una empresa de Argentina, para promocionar sus productos y servicios. El proyecto se encuentra en produccion en el momento. Todas las animaciones fueron creadas customizadas con CSS. El proyecto fue desarrollado en Landing creada con Astro, y js vanilla',
-      link: 'https://grupo-oslo.com.ar/',
+      link: 'https://grupooslo.com.ar/',
     },    
   ];
 
