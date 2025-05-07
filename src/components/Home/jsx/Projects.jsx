@@ -40,6 +40,13 @@ export const Projects = () => {
       image: '/img/OliverPets.png',
       description: 'Sistema para una startup de Argentina. Se actualizo el sitio web de la empresa, utilizando Reactjs y StyledComponents. Se desarrollo tanto un front web como una aplicacion mobile con React Native. Ademas en esta empresa se mantuvo un panel admin en React. Este trabajo fue desarollado por un equipo de personas tanto frontend como backend, atendiendo a los requerimientos de la empresa. El proyecto se encuentra en produccion en el momento.',
     },    
+    {
+      name: 'Grupo Oslo Landing',
+      company: 'Grupo Oslo',
+      image: '/img/grupo_oslo.png',
+      description: ' Este landing fue creado para una empresa de Argentina, para promocionar sus productos y servicios. El proyecto se encuentra en produccion en el momento. Todas las animaciones fueron creadas customizadas con CSS. El proyecto fue desarrollado en Landing creada con Astro, y js vanilla',
+      link: 'https://grupo-oslo.com.ar/',
+    },    
   ];
 
   return (
@@ -57,6 +64,7 @@ export const Projects = () => {
             <h2 className="text-sm md:text-xl font-bold">{selectedProject.name}</h2>
             <p className="text-sm md:text-lg pb-2">{selectedProject.company}</p>
             <p className="text-sm md:text-lg">{selectedProject.description}</p>
+            <a href="{selectedProject.link}" className="text-sm md:text-lg font-bold mt-4" target="_blank">Link a la web</a>
             <div className="mt-10">
               <img src={selectedProject.image}  alt={selectedProject.name} />
             </div>
