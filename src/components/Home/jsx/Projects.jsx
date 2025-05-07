@@ -64,7 +64,10 @@ export const Projects = () => {
             <h2 className="text-sm md:text-xl font-bold">{selectedProject.name}</h2>
             <p className="text-sm md:text-lg pb-2">{selectedProject.company}</p>
             <p className="text-sm md:text-lg">{selectedProject.description}</p>
-            <a href="{selectedProject.link}" className="text-sm md:text-lg font-bold mt-4" target="_blank">Link a la web</a>
+            {selectedProject.link && (
+              <a href={`${selectedProject.link}`} className="text-sm md:text-lg font-bold mt-4" target="_blank">Link a la web</a>
+            )}
+           
             <div className="mt-10">
               <img src={selectedProject.image}  alt={selectedProject.name} />
             </div>
