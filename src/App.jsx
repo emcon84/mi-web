@@ -1,81 +1,87 @@
-import { useEffect, useRef, useState } from 'react'
-import { AboutSection } from './components/Home/jsx/AboutSection'
-import { HomeComponent } from './components/Home/jsx/HomeComponent'
-import { AnimatePresence, motion } from "framer-motion"
-import { Projects } from './components/Home/jsx/Projects'
-import { LineWork } from './components/Home/jsx/LineWork'
-import { Contact } from './components/Home/jsx/Contact'
-import { MdEmail } from 'react-icons/md'
-import { IoLogoWhatsapp } from 'react-icons/io'
+import { useEffect, useRef, useState } from "react";
+import { AboutSection } from "./components/Home/jsx/AboutSection";
+import { HomeComponent } from "./components/Home/jsx/HomeComponent";
+import { AnimatePresence, motion } from "framer-motion";
+import { Projects } from "./components/Home/jsx/Projects";
+import { LineWork } from "./components/Home/jsx/LineWork";
+import { Contact } from "./components/Home/jsx/Contact";
+import { MdEmail } from "react-icons/md";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 // import ContactSection from './components/ContactSection'
 
-const sections = [<HomeComponent />, <AboutSection />, <Projects />, <LineWork />]
+const sections = [
+  <HomeComponent />,
+  <AboutSection />,
+  <Projects />,
+  <LineWork />,
+  <Contact />,
+];
 
 function App() {
-  const [index, setIndex] = useState(0)
-  const [isAnimating, setIsAnimating] = useState(false)
+  const [index, setIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-  const touchStartRef = useRef(null)
-  const touchEndRef = useRef(null)
+  const touchStartRef = useRef(null);
+  const touchEndRef = useRef(null);
 
   useEffect(() => {
     const handleWheel = (e) => {
-      if (isAnimating) return
-      setIsAnimating(true)
+      if (isAnimating) return;
+      setIsAnimating(true);
 
       if (e.deltaY > 0 && index < sections.length - 1) {
-        setIndex((prev) => prev + 1)
+        setIndex((prev) => prev + 1);
       } else if (e.deltaY < 0 && index > 0) {
-        setIndex((prev) => prev - 1)
+        setIndex((prev) => prev - 1);
       }
 
-      setTimeout(() => setIsAnimating(false), 1000)
-    }
+      setTimeout(() => setIsAnimating(false), 1000);
+    };
 
     const handleTouchStart = (e) => {
-      touchStartRef.current = e.touches[0].clientY
-    }
+      touchStartRef.current = e.touches[0].clientY;
+    };
 
     const handleTouchMove = (e) => {
-      touchEndRef.current = e.touches[0].clientY
-    }
+      touchEndRef.current = e.touches[0].clientY;
+    };
 
     const handleTouchEnd = () => {
-      if (isAnimating) return
+      if (isAnimating) return;
 
-      const start = touchStartRef.current
-      const end = touchEndRef.current
+      const start = touchStartRef.current;
+      const end = touchEndRef.current;
 
       if (start !== null && end !== null) {
-        const deltaY = end - start
+        const deltaY = end - start;
         if (deltaY < -50 && index < sections.length - 1) {
-          setIsAnimating(true)
-          setIndex((prev) => prev + 1)
+          setIsAnimating(true);
+          setIndex((prev) => prev + 1);
         } else if (deltaY > 50 && index > 0) {
-          setIsAnimating(true)
-          setIndex((prev) => prev - 1)
+          setIsAnimating(true);
+          setIndex((prev) => prev - 1);
         }
 
-        setTimeout(() => setIsAnimating(false), 1000)
+        setTimeout(() => setIsAnimating(false), 1000);
       }
 
-      touchStartRef.current = null
-      touchEndRef.current = null
-    }
+      touchStartRef.current = null;
+      touchEndRef.current = null;
+    };
 
-    window.addEventListener("wheel", handleWheel)
-    document.addEventListener("touchstart", handleTouchStart)
-    document.addEventListener("touchmove", handleTouchMove)
-    document.addEventListener("touchend", handleTouchEnd)
+    window.addEventListener("wheel", handleWheel);
+    document.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleTouchEnd);
 
     return () => {
-      window.removeEventListener("wheel", handleWheel)
-      document.removeEventListener("touchstart", handleTouchStart)
-      document.removeEventListener("touchmove", handleTouchMove)
-      document.removeEventListener("touchend", handleTouchEnd)
-    }
-  }, [index, isAnimating])
+      window.removeEventListener("wheel", handleWheel);
+      document.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [index, isAnimating]);
 
   return (
     <div className=" overflow-hidden">
@@ -92,7 +98,7 @@ function App() {
         </motion.div>
       </AnimatePresence>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
