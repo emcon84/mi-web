@@ -71,7 +71,7 @@ export const Projects = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center backdrop-filter backdrop-blur-md"
+          className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center backdrop-filter backdrop-blur-md h-[100dvh]"
         >
           <div className="max-w-[800px] p-4  rounded-lg text-white">
             <h2 className="text-sm md:text-xl font-bold">
