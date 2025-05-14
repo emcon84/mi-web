@@ -19,7 +19,7 @@ export const AboutSection = () => {
         el equipo de trabajo.
       </p>
 
-      <p className="md:text-xl text-sm md:p-20 p-5 italic lg:max-w-[800px] xs:max-w-[300px] ">
+      <p className="md:text-xl text-sm md:p-10 p-5 italic lg:max-w-[800px] xs:max-w-[300px] ">
         Desarrollar software no es solo crear código...es analizar, comprender,
         aprender, crear, testear, documentar y mantener.
       </p>
