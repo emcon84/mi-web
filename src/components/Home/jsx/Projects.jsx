@@ -21,14 +21,14 @@ export const Projects = () => {
       company: "Notimation",
       image: "/img/imgUiTool.png",
       description:
-        "Un proyecto desafiante. Desde el inicio, la idea fue ambiciosa. Este proyecto es un creador de templates para envíos de emails, landings y bots conectados a IAs, diseñado para ayudar al usuario a construir un ecosistema de comunicación unificado. El proyecto fue desarrollado con React, Next.js, Tailwind CSS y NextUI.",
+        "Un proyecto desafiante. Desde el inicio, la idea fue ambiciosa. Este proyecto es un creador de templates para envíos de emails, landings y bots conectados a IAs, diseñado para ayudar al usuario a construir un ecosistema de comunicación unificado. Estuve a cargo de toda la UI y la integración con los endpoints y APIs. El MVP termino resultando en una aplicacion de diseño muy parecida visualmente a Photoshop y otros software de diseño, solo que orientado a las necesidades del cliente. El proyecto fue desarrollado con React, Next.js, Tailwind CSS y NextUI.",
     },
     {
       name: "Agent",
       company: "Notimation",
       image: "/img/Agent.png",
       description:
-        "SSistema de gestión de soporte para Notimation. Agentes conectados a una plataforma responden chats iniciados por un chatbot. Una vez que el usuario solicita hablar con un agente, el sistema notifica a uno disponible para que atienda el requerimiento y comience una conversación en tiempo real con el cliente. El proyecto fue desarrollado con React y Next.js, utilizando Tailwind CSS y NextUI. Para el chat se empleó Socket.IO.",
+        "Sistema de gestión de soporte para Notimation. Otro gran proyecto para el mismo cliente de UITool en el que tuve que desarrollar habilidades de diseño y arquitectura mudernos. Agentes es una plataforma donde personal de soporte se conectan y responden chats iniciados por chatbots implementados en distintos canales de comunicacion empresarial. Una vez que el usuario solicita hablar con un agente, el sistema notifica a un agente disponible para que atienda el requerimiento y comience una conversación en tiempo real con el cliente. El proyecto fue desarrollado con React y Next.js, utilizando Tailwind CSS y NextUI. Para el chat se empleó Socket.IO.",
     },
     {
       name: "ABM admin",
