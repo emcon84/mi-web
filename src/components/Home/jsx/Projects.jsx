@@ -102,7 +102,7 @@ export const Projects = () => {
           </div>
         </motion.div>
       )}
-      <div className="h-screen text-align-center flex flex-col items-center justify-center bg-slate-800 text-white">
+      <div className="h-screen text-align-center flex flex-col items-center justify-center bg-transparent text-white">
         <h1 className="text-sm md:text-4xl pt-5 md:pt-20">Proyectos</h1>
         <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4 p-5 md:p-20">
           {projects.map((project, index) => (

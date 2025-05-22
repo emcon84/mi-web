@@ -37,7 +37,7 @@ export const HomeComponent = () => {
   }
 
   return (
-    <motion.section className="h-screen text-align-center flex flex-col items-center justify-center bg-slate-800 text-white text-xl lg:text-4xl">
+    <motion.section className="h-screen text-align-center flex flex-col items-center justify-center bg-transparent text-white text-xl lg:text-4xl">
       <div className="flex items-center">
         <img
           src="/img/yo.jpeg"

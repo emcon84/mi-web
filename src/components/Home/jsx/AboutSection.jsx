@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const AboutSection = () => {
   return (
-    <motion.section className="h-screen text-align-center flex flex-col items-center justify-center bg-slate-800 text-white">
+    <motion.section className="h-screen text-align-center flex flex-col items-center justify-center bg-transparent text-white">
       <h1 className="text-xl md:text-4xl">Sobre mí</h1>
       <p className="md:text-xl text-sm md:p-10 p-5 lg:max-w-[800px] xs:max-w-[300px]">
         Desarrollador de software con más de 5 años de experiencia, no solo
