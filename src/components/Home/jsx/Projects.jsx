@@ -21,21 +21,21 @@ export const Projects = () => {
       company: "Notimation",
       image: "/img/imgUiTool.png",
       description:
-        "Un proyecto desafiante. Desde el punto inicial, la idea fue ambisiosa. Este proyecto es un creador de templates para envios emails, landings, bots templates conectados a IAs, para ayudar al usuario, a crear un ecosistema de comunicación unificado. El proyecto fue desarrollado en React y Next.js con Tailwind CSS, y NextUI.",
+        "Un proyecto desafiante. Desde el inicio, la idea fue ambiciosa. Este proyecto es un creador de templates para envíos de emails, landings y bots conectados a IAs, diseñado para ayudar al usuario a construir un ecosistema de comunicación unificado. El proyecto fue desarrollado con React, Next.js, Tailwind CSS y NextUI.",
     },
     {
       name: "Agent",
       company: "Notimation",
       image: "/img/Agent.png",
       description:
-        "Sistema de gestion de soporte para Notimation. Agentes conectados a una plataforma para contestar chats provenientes de una chatbot iniciado por un usuario. Una vez el user pedia hablar con una agente, el sistema avisaba a un agente en linea para que tome el requerimiento y comenzaba a chatear en tiempo real con el cliente.  El proyecto fue desarrollado en React y Next.js con Tailwind CSS, y NextUI. Para el chat se utilizo Socket IO.",
+        "SSistema de gestión de soporte para Notimation. Agentes conectados a una plataforma responden chats iniciados por un chatbot. Una vez que el usuario solicita hablar con un agente, el sistema notifica a uno disponible para que atienda el requerimiento y comience una conversación en tiempo real con el cliente. El proyecto fue desarrollado con React y Next.js, utilizando Tailwind CSS y NextUI. Para el chat se empleó Socket.IO.",
     },
     {
       name: "ABM admin",
       company: "Personal",
       image: "/img/dashboard.png",
       description:
-        "Proyecto de sistema de Stock para pequeñas empresas y negocios familiares. Un proyecto personal pensado para vender a negocios en crecimiento, que requiran un mantenimiento de Stock, registro de ventas y compras. El proyecto fue Desarrollado con React y CSS customizado para el proyecto. El backend creado con Nodejs y MongoDB. El proyecto se encuentra en produccion en el momento. Backend desplegado en Relway y frontend en Vercel en modo Demo.",
+        "Proyecto de sistema de stock para pequeñas empresas y negocios familiares. Es un proyecto personal pensado para vender a negocios en crecimiento que requieran mantenimiento de stock, registro de ventas y compras. El proyecto fue desarrollado con React y CSS personalizado. El backend fue creado con Node.js y MongoDB. Actualmente se encuentra en producción, con el backend desplegado en Render y el frontend en Vercel, en modo demo.",
       link: "https://nexo-seven.vercel.app/dashboard",
     },
     {
@@ -43,14 +43,14 @@ export const Projects = () => {
       company: "Oliver Pets",
       image: "/img/OliverPets.png",
       description:
-        "Sistema ecommerce para una startup de Argentina. Actualizacion y mantenimiento del sitio web de la empresa, utilizando Reactjs y StyledComponents. Desarrollo frontend de aplicaciones moviles con React Native. Ademas en esta empresa se mantuvo un panel admin en React, desde donde se gestionaba toda la configuracion, facturacion, estadisticas, metricas, etc de toda la empresa y sus aplicaciones. En este trabajo desarrolle con un equipo de personas tanto frontend como backend, atendiendo a los requerimientos del área de negocio de la empresa. Se trabajo con metodologia Scrum poco restrictiva, y se utilizo Git para el control de versiones. Todos los proyectos se encuentran en produccion en el momento.",
+        "Sistema e-commerce para una startup argentina. Participé en la actualización y mantenimiento del sitio web de la empresa, utilizando ReactJS y Styled Components. También desarrollé el frontend de aplicaciones móviles con React Native. Además, se mantuvo un panel de administración en React desde donde se gestionaba la configuración, facturación, estadísticas, métricas, etc., de toda la empresa y sus aplicaciones. En este trabajo colaboré con un equipo de frontend y backend, atendiendo a los requerimientos del área de negocio. Se trabajó con metodología Scrum poco restrictiva y se utilizó Git para el control de versiones. Todos los proyectos están actualmente en producción.",
     },
     {
       name: "Grupo Oslo Landing",
       company: "Grupo Oslo",
       image: "/img/grupo_oslo.png",
       description:
-        "Landing para una empresa Argentina de bienes Raices, que desarrolla su actividad tanto en el país como en España. Creada con Astro y JS vanilla, ya que la misma no requería de frameworks específicos por ser una landing simple y por esto decidí realizarla lo más pura posible, para tener manejo del SEO y velocidad de carga lo más contralado posible. El proyecto se encuentra en producción. Todas las animaciones fueron creadas customizadas con CSS y JS puro.",
+        "Landing para una empresa argentina de bienes raíces, con presencia tanto en el país como en España. Fue creada con Astro y JavaScript puro, ya que no requería frameworks específicos al ser una landing simple. Por eso, decidí desarrollarla de la forma más pura posible para tener un mejor control del SEO y de la velocidad de carga. El proyecto está en producción. Todas las animaciones fueron desarrolladas de forma personalizada con CSS y JS puro.",
       link: "https://grupooslo.com.ar/",
     },
     {
@@ -58,7 +58,7 @@ export const Projects = () => {
       company: "Personal  ",
       image: "/img/Dashboard.png",
       description:
-        " Template dashboard creado para vender en plataformas web. El mismo esta hecho en React con Vite y Tailwind CSS + Typescript. Cuenta con fluidas animaciones con framer motion. Modo Oscuro y Templates con Sidebar o Navbar incluido.",
+        "Template de dashboard creado para su venta en plataformas web. Desarrollado en React con Vite, Tailwind CSS y TypeScript. Incluye animaciones fluidas con Framer Motion, modo oscuro y plantillas con Sidebar o Navbar incluidos.",
       link: "https://dashboar-theme.vercel.app/",
     },
   ];
