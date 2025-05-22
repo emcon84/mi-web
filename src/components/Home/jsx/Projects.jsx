@@ -35,21 +35,22 @@ export const Projects = () => {
       company: "Personal",
       image: "/img/dashboard.png",
       description:
-        "Proyecto de sistema de Stock para pequeñas empresas y negocios familiares. Desarrollado con React y CSS customizado para el proyecto",
+        "Proyecto de sistema de Stock para pequeñas empresas y negocios familiares. Un proyecto personal pensado para vender a negocios en crecimiento, que requiran un mantenimiento de Stock, registro de ventas y compras. El proyecto fue Desarrollado con React y CSS customizado para el proyecto. El backend creado con Nodejs y MongoDB. El proyecto se encuentra en produccion en el momento. Backend desplegado en Relway y frontend en Vercel en modo Demo.",
+      link: "https://nexo-seven.vercel.app/dashboard",
     },
     {
       name: "Oliver Pets Web",
       company: "Oliver Pets",
       image: "/img/OliverPets.png",
       description:
-        "Sistema para una startup de Argentina. Se actualizo el sitio web de la empresa, utilizando Reactjs y StyledComponents. Se desarrollo tanto un front web como una aplicacion mobile con React Native. Ademas en esta empresa se mantuvo un panel admin en React. Este trabajo fue desarollado por un equipo de personas tanto frontend como backend, atendiendo a los requerimientos de la empresa. El proyecto se encuentra en produccion en el momento.",
+        "Sistema ecommerce para una startup de Argentina. Actualizacion y mantenimiento del sitio web de la empresa, utilizando Reactjs y StyledComponents. Desarrollo frontend de aplicaciones moviles con React Native. Ademas en esta empresa se mantuvo un panel admin en React, desde donde se gestionaba toda la configuracion, facturacion, estadisticas, metricas, etc de toda la empresa y sus aplicaciones. En este trabajo desarrolle con un equipo de personas tanto frontend como backend, atendiendo a los requerimientos del área de negocio de la empresa. Se trabajo con metodologia Scrum poco restrictiva, y se utilizo Git para el control de versiones. Todos los proyectos se encuentran en produccion en el momento.",
     },
     {
       name: "Grupo Oslo Landing",
       company: "Grupo Oslo",
       image: "/img/grupo_oslo.png",
       description:
-        " Este landing fue creado para una empresa de Argentina, para promocionar sus productos y servicios. El proyecto se encuentra en produccion en el momento. Todas las animaciones fueron creadas customizadas con CSS. El proyecto fue desarrollado en Landing creada con Astro, y js vanilla",
+        "Landing para una empresa Argentina de bienes Raices, que desarrolla su actividad tanto en el país como en España. Creada con Astro y JS vanilla, ya que la misma no requería de frameworks específicos por ser una landing simple y por esto decidí realizarla lo más pura posible, para tener manejo del SEO y velocidad de carga lo más contralado posible. El proyecto se encuentra en producción. Todas las animaciones fueron creadas customizadas con CSS y JS puro.",
       link: "https://grupooslo.com.ar/",
     },
     {
