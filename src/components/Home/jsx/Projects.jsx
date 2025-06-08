@@ -55,7 +55,7 @@ export const Projects = () => {
     },
     {
       name: "Dashboard",
-      company: "Personal  ",
+      company: "Personal",
       image: "/img/Dashboard.png",
       description:
         "Template de dashboard creado para su venta en plataformas web. Desarrollado en React con Vite, Tailwind CSS y TypeScript. Incluye animaciones fluidas con Framer Motion, modo oscuro y plantillas con Sidebar o Navbar incluidos.",
@@ -116,7 +116,12 @@ export const Projects = () => {
                 className="w-full h-10 md:h-40 object-cover"
               />
               <h2 className="text-xs md:text-xl pt-4">{project.name}</h2>
-              <p className="text-xs md:text-lg">Empresa: {project.company}</p>
+              <p className="text-xs md:text-lg">
+                Empresa:{" "}
+                {project.company === "Personal"
+                  ? "Proyecto Personal"
+                  : project.company}
+              </p>
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 mt-2 px-2 md:px-2 md:py-2 rounded w-full text-xs md:text-lg"
                 onClick={() => handleOpenModal(project)}
