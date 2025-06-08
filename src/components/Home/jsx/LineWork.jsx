@@ -73,9 +73,11 @@ export const LineWork = () => {
           </div>
         </motion.div>
       )}
-      <div className="h-screen text-align-center flex flex-col items-center justify-center bg-transparent text-white">
-        <h1 className="text-sm md:text-4xl pt-5 pb-10">Mi trayectoria</h1>
-        <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4 p-5 md:p-20 md:hidden">
+      <div className="md:h-screen text-align-center flex flex-col md:items-center md:justify-center justify-start bg-gray-900 bg-transparent text-white">
+        <h1 className="text-xl md:text-4xl pt-5 md:pt-20 flex flex-col items-center">
+          Mi trayectoria
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 p-5 md:p-20 md:hidden">
           {experiencias.map((experience, index) => (
             <div
               key={index}

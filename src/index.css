@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    height: 100vh;
-    overflow-y: hidden;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  /* overflow-y: hidden;     */
 }
 
 hr {
-    border-color: #fdfdfd29;
+  border-color: #fdfdfd29;
 }

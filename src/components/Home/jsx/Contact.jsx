@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export const Contact = () => {
   return (
-    <div className="h-screen text-align-center flex flex-col items-center justify-center bg-transparent text-white">
+    <div className="h-screen text-align-center flex flex-col items-center justify-center bg-transparent text-white bg-gray-900 ">
       <h1 className="text-sm md:text-4xl pt-5 pb-10">Contactame</h1>
       <p className="text-sm md:text-xl mb-20 flex justify-center w-72 text-center md:w-full">
         Hablemos sobre nuevos proyectos que podamos desarrollar{" "}

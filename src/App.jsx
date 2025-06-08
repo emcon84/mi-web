@@ -5,29 +5,42 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Projects } from "./components/Home/jsx/Projects";
 import { LineWork } from "./components/Home/jsx/LineWork";
 import { Contact } from "./components/Home/jsx/Contact";
-import { MdEmail } from "react-icons/md";
-import { IoLogoWhatsapp } from "react-icons/io";
-
-// import ContactSection from './components/ContactSection'
 
 const sections = [
-  <HomeComponent />,
-  <AboutSection />,
-  <Projects />,
-  <LineWork />,
-  <Contact />,
+  <HomeComponent key="home" />,
+  <AboutSection key="about" />,
+  <Projects key="projects" />,
+  <LineWork key="linework" />,
+  <Contact key="contact" />,
 ];
 
 function App() {
   const [index, setIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const touchStartRef = useRef(null);
   const touchEndRef = useRef(null);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
+    let lastScrollTime = 0;
+
     const handleWheel = (e) => {
-      if (isAnimating) return;
+      const now = Date.now();
+      if (isAnimating || now - lastScrollTime < 1000) return; // 1s de cooldown
+      lastScrollTime = now;
+
       setIsAnimating(true);
 
       if (e.deltaY > 0 && index < sections.length - 1) {
@@ -81,10 +94,22 @@ function App() {
       document.removeEventListener("touchmove", handleTouchMove);
       document.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [index, isAnimating]);
+  }, [index, isAnimating, isMobile]);
+
+  console.log("isMobile", isMobile);
+
+  if (isMobile) {
+    return (
+      <div className="overflow-x-hidden">
+        {sections.map((Section, i) => (
+          <div key={i}>{Section}</div>
+        ))}
+      </div>
+    );
+  }
 
   return (
-    <div className=" overflow-hidden">
+    <div className="">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}

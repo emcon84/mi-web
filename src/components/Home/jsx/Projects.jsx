@@ -72,7 +72,7 @@ export const Projects = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center backdrop-filter backdrop-blur-md h-[100dvh]"
+          className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center backdrop-filter backdrop-blur-md h-screen"
         >
           <div className="max-w-[800px] p-4  rounded-lg text-white">
             <h2 className="text-sm md:text-xl font-bold">
@@ -102,9 +102,11 @@ export const Projects = () => {
           </div>
         </motion.div>
       )}
-      <div className="h-screen text-align-center flex flex-col items-center justify-center bg-transparent text-white">
-        <h1 className="text-sm md:text-4xl pt-5 md:pt-20">Proyectos</h1>
-        <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4 p-5 md:p-20">
+      <div className="md:h-screen text-align-center flex flex-col md:items-center md:justify-center justify-start bg-gray-900 bg-transparent text-white">
+        <h1 className="text-xl md:text-4xl pt-2 md:pt-20 flex flex-col items-center">
+          Proyectos
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 p-5 md:p-5">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -113,7 +115,7 @@ export const Projects = () => {
               <img
                 src={project.image}
                 alt={project.name}
-                className="w-full h-10 md:h-40 object-cover"
+                className="w-full h-40 object-cover"
               />
               <h2 className="text-xs md:text-xl pt-4">{project.name}</h2>
               <p className="text-xs md:text-lg">
