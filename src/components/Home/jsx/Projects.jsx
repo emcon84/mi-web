@@ -102,16 +102,13 @@ export const Projects = () => {
           </div>
         </motion.div>
       )}
-      <div className="md:h-screen text-align-center flex flex-col md:items-center md:justify-center justify-start bg-gray-900 bg-transparent text-white">
+      <div className="md:h-screen text-align-center flex flex-col md:items-center md:justify-center justify-start  bg-transparent text-white">
         <h1 className="text-xl md:text-4xl pt-2 md:pt-20 flex flex-col items-center">
           Proyectos
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 p-5 md:p-5">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="border-2 border-gray-600 p-2 shadow-lg rounded-lg"
-            >
+            <div key={index} className="shadow-lg rounded-lg bg-black/20 p-4">
               <img
                 src={project.image}
                 alt={project.name}

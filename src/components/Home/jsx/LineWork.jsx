@@ -52,7 +52,7 @@ export const LineWork = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center backdrop-filter backdrop-blur-md"
+          className="fixed inset-0 bg-opacity-75 flex justify-center items-center backdrop-filter backdrop-blur-md"
         >
           <div className="max-w-[800px] p-4  rounded-lg text-white">
             <h2 className="text-sm md:text-xl font-bold">
@@ -73,7 +73,7 @@ export const LineWork = () => {
           </div>
         </motion.div>
       )}
-      <div className="md:h-screen text-align-center flex flex-col md:items-center md:justify-center justify-start bg-gray-900 bg-transparent text-white">
+      <div className="md:h-screen text-align-center flex flex-col md:items-center md:justify-center justify-start bg-transparent text-white">
         <h1 className="text-xl md:text-4xl pt-5 md:pt-20 flex flex-col items-center">
           Mi trayectoria
         </h1>
@@ -81,7 +81,7 @@ export const LineWork = () => {
           {experiencias.map((experience, index) => (
             <div
               key={index}
-              className="border-2 border-gray-600 p-2 shadow-lg rounded-lg flex flex-col justify-between"
+              className="bg-black/20 p-4 shadow-lg rounded-lg flex flex-col justify-between"
             >
               <h2 className="text-xs md:text-xl pt-4">{experience.titulo}</h2>
               <button
@@ -98,7 +98,7 @@ export const LineWork = () => {
             {experiencias.map((experience, index) => (
               <div
                 key={index}
-                className="border-2 border-gray-600 rounded-lg p-4 mt-4"
+                className="shadow-lg bg-black/20 rounded-lg p-4 mt-4"
               >
                 <p className="text-sm md:text-xl">{experience.titulo}</p>
                 <p className="mt-4 text-xs lg:text-sm">

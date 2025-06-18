@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { IoLogoLinkedin, IoLogoWhatsapp } from "react-icons/io";
-import { MdEmail } from "react-icons/md";
 import App from "./App";
 import "./index.css";
 
