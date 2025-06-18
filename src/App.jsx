@@ -1,10 +1,10 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { AboutSection } from "./components/Home/jsx/AboutSection";
-import { Contact } from "./components/Home/jsx/Contact";
 import { HomeComponent } from "./components/Home/jsx/HomeComponent";
-import { LineWork } from "./components/Home/jsx/LineWork";
+import { AnimatePresence, motion } from "framer-motion";
 import { Projects } from "./components/Home/jsx/Projects";
+import { LineWork } from "./components/Home/jsx/LineWork";
+import { Contact } from "./components/Home/jsx/Contact";
 
 const sections = [
   <HomeComponent key="home" />,
@@ -102,7 +102,9 @@ function App() {
     return (
       <div className="overflow-x-hidden">
         {sections.map((Section, i) => (
-          <div key={i}>{Section}</div>
+          <div key={i} className="min-h-screen">
+            {Section}
+          </div>
         ))}
       </div>
     );
@@ -110,7 +112,6 @@ function App() {
 
   return (
     <div className="">
-      {/* <ParticlesBackground /> */}
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
