@@ -1,0 +1,21 @@
+/* src/AnimatedBackground.css */
+.animated-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(45deg, #439edb, #120d3f, #2b2d42, #b63434);
+  background-size: 600% 600%;
+  animation: animatedGradient 60s ease infinite;
+}
+
+@keyframes animatedGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
