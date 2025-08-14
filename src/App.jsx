@@ -1,127 +1,91 @@
-import { useEffect, useRef, useState } from "react";
-import { AboutSection } from "./components/Home/jsx/AboutSection";
-import { HomeComponent } from "./components/Home/jsx/HomeComponent";
-import { AnimatePresence, motion } from "framer-motion";
-import { Projects } from "./components/Home/jsx/Projects";
-import { LineWork } from "./components/Home/jsx/LineWork";
-import { Contact } from "./components/Home/jsx/Contact";
-
-const sections = [
-  <HomeComponent key="home" />,
-  <AboutSection key="about" />,
-  <Projects key="projects" />,
-  <LineWork key="linework" />,
-  <Contact key="contact" />,
-];
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ModernHero } from "./components/Modern/ModernHero";
+import { ModernProjects } from "./components/Modern/ModernProjects";
+import { ModernSkills } from "./components/Modern/ModernSkills";
+import { ModernContact } from "./components/Modern/ModernContact";
+import { ModernNavigation } from "./components/Modern/ModernNavigation";
 
 function App() {
-  const [index, setIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [currentSection, setCurrentSection] = useState(0);
+  const [language, setLanguage] = useState("es"); // "es" or "en"
+  const [theme, setTheme] = useState("dark"); // "dark" or "light"
 
-  const touchStartRef = useRef(null);
-  const touchEndRef = useRef(null);
+  const navigateToSection = (sectionIndex) => {
+    if (sectionIndex >= 0 && sectionIndex < 4) {
+      // 4 sections total
+      setCurrentSection(sectionIndex);
+    }
+  };
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "es" ? "en" : "es"));
+  };
 
-  useEffect(() => {
-    if (isMobile) return;
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
-    let lastScrollTime = 0;
-
-    const handleWheel = (e) => {
-      const now = Date.now();
-      if (isAnimating || now - lastScrollTime < 1000) return; // 1s de cooldown
-      lastScrollTime = now;
-
-      setIsAnimating(true);
-
-      if (e.deltaY > 0 && index < sections.length - 1) {
-        setIndex((prev) => prev + 1);
-      } else if (e.deltaY < 0 && index > 0) {
-        setIndex((prev) => prev - 1);
-      }
-
-      setTimeout(() => setIsAnimating(false), 1000);
-    };
-
-    const handleTouchStart = (e) => {
-      touchStartRef.current = e.touches[0].clientY;
-    };
-
-    const handleTouchMove = (e) => {
-      touchEndRef.current = e.touches[0].clientY;
-    };
-
-    const handleTouchEnd = () => {
-      if (isAnimating) return;
-
-      const start = touchStartRef.current;
-      const end = touchEndRef.current;
-
-      if (start !== null && end !== null) {
-        const deltaY = end - start;
-        if (deltaY < -50 && index < sections.length - 1) {
-          setIsAnimating(true);
-          setIndex((prev) => prev + 1);
-        } else if (deltaY > 50 && index > 0) {
-          setIsAnimating(true);
-          setIndex((prev) => prev - 1);
-        }
-
-        setTimeout(() => setIsAnimating(false), 1000);
-      }
-
-      touchStartRef.current = null;
-      touchEndRef.current = null;
-    };
-
-    window.addEventListener("wheel", handleWheel);
-    document.addEventListener("touchstart", handleTouchStart);
-    document.addEventListener("touchmove", handleTouchMove);
-    document.addEventListener("touchend", handleTouchEnd);
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-      document.removeEventListener("touchstart", handleTouchStart);
-      document.removeEventListener("touchmove", handleTouchMove);
-      document.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [index, isAnimating, isMobile]);
-
-  console.log("isMobile", isMobile);
-
-  if (isMobile) {
-    return (
-      <div className="overflow-x-hidden">
-        {sections.map((Section, i) => (
-          <div key={i} className="min-h-screen">
-            {Section}
-          </div>
-        ))}
-      </div>
-    );
-  }
+  const sections = [
+    {
+      id: 0,
+      name: language === "es" ? "Inicio" : "Hero",
+      component: (
+        <ModernHero
+          onNavigate={navigateToSection}
+          language={language}
+          theme={theme}
+        />
+      ),
+    },
+    {
+      id: 1,
+      name: language === "es" ? "Habilidades" : "Skills",
+      component: <ModernSkills language={language} theme={theme} />,
+    },
+    {
+      id: 2,
+      name: language === "es" ? "Proyectos" : "Projects",
+      component: <ModernProjects language={language} theme={theme} />,
+    },
+    {
+      id: 3,
+      name: language === "es" ? "Contacto" : "Contact",
+      component: <ModernContact language={language} theme={theme} />,
+    },
+  ];
 
   return (
-    <div className="">
+    <div
+      className={`relative min-h-screen ${
+        theme === "dark"
+          ? "bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
+          : "bg-gradient-to-br from-gray-100 via-blue-100 to-gray-100"
+      }`}
+    >
+      <ModernNavigation
+        sections={sections}
+        currentSection={currentSection}
+        onNavigate={navigateToSection}
+        language={language}
+        theme={theme}
+        onToggleLanguage={toggleLanguage}
+        onToggleTheme={toggleTheme}
+      />
+
       <AnimatePresence mode="wait">
         <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0 h-screen"
+          key={currentSection}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -50 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.25, 0.25, 0.25, 1],
+          }}
+          className="w-full"
         >
-          {sections[index]}
+          {sections[currentSection].component}
         </motion.div>
       </AnimatePresence>
     </div>
