@@ -10,11 +10,20 @@ function App() {
   const [currentSection, setCurrentSection] = useState(0);
   const [language, setLanguage] = useState("es"); // "es" or "en"
   const [theme, setTheme] = useState("dark"); // "dark" or "light"
-  const [isAnimating, setIsAnimating] = useState(true);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
-  // Controlar el overflow del body durante las animaciones
+  // Solo ocultar overflow en la carga inicial
   useEffect(() => {
-    if (isAnimating) {
+    const timer = setTimeout(() => {
+      setIsInitialLoad(false);
+    }, 1000); // Solo en la primera carga
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Controlar overflow solo en carga inicial
+  useEffect(() => {
+    if (isInitialLoad) {
       document.body.classList.add("overflow-hidden");
     } else {
       document.body.classList.remove("overflow-hidden");
@@ -24,21 +33,11 @@ function App() {
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
-  }, [isAnimating]);
-
-  // Detectar cuando terminan las animaciones iniciales
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsAnimating(false);
-    }, 800); // Duración más corta
-
-    return () => clearTimeout(timer);
-  }, [currentSection]); // Reset cuando cambia la sección
+  }, [isInitialLoad]);
 
   const navigateToSection = (sectionIndex) => {
     if (sectionIndex >= 0 && sectionIndex < 4) {
       // 4 sections total
-      setIsAnimating(true); // Activar control de overflow
       setCurrentSection(sectionIndex);
     }
   };
@@ -82,7 +81,7 @@ function App() {
 
   return (
     <div
-      className={`relative min-h-screen overflow-hidden ${
+      className={`relative min-h-screen ${
         theme === "dark"
           ? "bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
           : "bg-gradient-to-br from-gray-100 via-blue-100 to-gray-100"
@@ -108,8 +107,7 @@ function App() {
             duration: 0.5,
             ease: [0.25, 0.25, 0.25, 1],
           }}
-          className="w-full h-screen"
-          onAnimationComplete={() => setIsAnimating(false)}
+          className="w-full"
         >
           {sections[currentSection].component}
         </motion.div>
