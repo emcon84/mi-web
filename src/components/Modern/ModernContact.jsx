@@ -284,45 +284,6 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                       : "bg-gradient-to-br from-blue-100 to-cyan-100"
                   }`}
                 >
-                  <HiPhone
-                    className={`text-2xl ${
-                      theme === "dark" ? "text-blue-400" : "text-blue-600"
-                    }`}
-                  />
-                </div>
-                <div>
-                  <p
-                    className={`text-sm ${
-                      theme === "dark" ? "text-gray-400" : "text-gray-600"
-                    }`}
-                  >
-                    Phone
-                  </p>
-                  <p
-                    className={`font-medium ${
-                      theme === "dark" ? "text-white" : "text-gray-800"
-                    }`}
-                  >
-                    +549 3482445015
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ x: 5 }}
-                className={`flex items-center gap-4 p-4 backdrop-blur-sm border rounded-2xl transition-all duration-300 ${
-                  theme === "dark"
-                    ? "bg-white/5 border-white/10 hover:bg-white/10"
-                    : "bg-white/80 border-gray-200 hover:bg-white hover:shadow-md"
-                }`}
-              >
-                <div
-                  className={`p-3 rounded-xl ${
-                    theme === "dark"
-                      ? "bg-gradient-to-br from-blue-500/20 to-cyan-500/20"
-                      : "bg-gradient-to-br from-blue-100 to-cyan-100"
-                  }`}
-                >
                   <HiLocationMarker
                     className={`text-2xl ${
                       theme === "dark" ? "text-blue-400" : "text-blue-600"
