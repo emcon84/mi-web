@@ -16,9 +16,9 @@ export const ModernNavigation = ({
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
       className={`fixed top-0 left-0 right-0 z-50 p-4 md:p-6 ${
         theme === "dark"
           ? "bg-black/20 backdrop-blur-md"
@@ -28,8 +28,8 @@ export const ModernNavigation = ({
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo/Name */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
           className={`text-lg md:text-2xl font-bold ${theme === "dark" ? "text-white" : "text-gray-800"}`}
         >
@@ -138,8 +138,8 @@ export const ModernNavigation = ({
           <motion.a
             href="/src/assets/doc/Emiliano-contiCV.pdf"
             download
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
             className="px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full font-medium hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
             whileHover={{ scale: 1.05 }}

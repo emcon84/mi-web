@@ -32,12 +32,12 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { opacity: 0, scale: 0.99 },
     visible: {
-      y: 0,
       opacity: 1,
+      scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.3,
         ease: [0.25, 0.25, 0.25, 1],
       },
     },
@@ -152,7 +152,13 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
 
               <div className="space-y-6">
                 {/* Name Input */}
-                <motion.div whileHover={{ scale: 1.02 }} className="relative">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  whileHover={{ scale: 1.02 }}
+                  className="relative"
+                >
                   <motion.input
                     type="text"
                     name="name"
@@ -170,7 +176,13 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                 </motion.div>
 
                 {/* Email Input */}
-                <motion.div whileHover={{ scale: 1.02 }} className="relative">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  whileHover={{ scale: 1.02 }}
+                  className="relative"
+                >
                   <motion.input
                     type="email"
                     name="email"
@@ -188,7 +200,13 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                 </motion.div>
 
                 {/* Message Input */}
-                <motion.div whileHover={{ scale: 1.02 }} className="relative">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7, duration: 0.5 }}
+                  whileHover={{ scale: 1.02 }}
+                  className="relative"
+                >
                   <motion.textarea
                     name="message"
                     value={formData.message}
@@ -211,6 +229,9 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.9, duration: 0.5 }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-full px-8 py-4 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-2xl font-semibold text-lg shadow-lg shadow-green-500/25 hover:shadow-xl hover:shadow-green-500/40 transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -240,14 +261,20 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
           <motion.div variants={itemVariants} className="space-y-8">
             {/* Contact Details */}
             <div className="space-y-6">
-              <h3
+              <motion.h3
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
                 className={`text-2xl font-bold mb-6 ${theme === "dark" ? "text-white" : "text-gray-800"}`}
               >
                 {language === "es" ? "Ponerse en Contacto" : "Get in Touch"}
-              </h3>
+              </motion.h3>
 
               {/* Contact Items */}
               <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
                 whileHover={{ x: 5 }}
                 className={`flex items-center gap-4 p-4 backdrop-blur-sm border rounded-2xl transition-all duration-300 ${
                   theme === "dark"
@@ -255,7 +282,15 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                     : "bg-white/80 border-gray-200 hover:bg-white hover:shadow-md"
                 }`}
               >
-                <div
+                <motion.div
+                  animate={{
+                    rotate: [0, 5, -5, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                   className={`p-3 rounded-xl ${
                     theme === "dark"
                       ? "bg-gradient-to-br from-green-500/20 to-blue-500/20"
@@ -267,7 +302,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                       theme === "dark" ? "text-green-400" : "text-green-600"
                     }`}
                   />
-                </div>
+                </motion.div>
                 <div>
                   <p
                     className={`text-sm ${
@@ -287,6 +322,9 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
               </motion.div>
 
               <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
                 whileHover={{ x: 5 }}
                 className={`flex items-center gap-4 p-4 backdrop-blur-sm border rounded-2xl transition-all duration-300 ${
                   theme === "dark"
@@ -294,7 +332,15 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                     : "bg-white/80 border-gray-200 hover:bg-white hover:shadow-md"
                 }`}
               >
-                <div
+                <motion.div
+                  animate={{
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                   className={`p-3 rounded-xl ${
                     theme === "dark"
                       ? "bg-gradient-to-br from-blue-500/20 to-cyan-500/20"
@@ -306,7 +352,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                       theme === "dark" ? "text-blue-400" : "text-blue-600"
                     }`}
                   />
-                </div>
+                </motion.div>
                 <div>
                   <p
                     className={`text-sm ${
@@ -328,13 +374,16 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
 
             {/* Social Links */}
             <div>
-              <h4
+              <motion.h4
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
                 className={`text-xl font-bold mb-6 ${
                   theme === "dark" ? "text-white" : "text-gray-800"
                 }`}
               >
                 Follow Me
-              </h4>
+              </motion.h4>
               <div className="flex gap-4">
                 {dataSocialNetwork.map((social, index) => (
                   <motion.a
@@ -342,9 +391,11 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 + index * 0.1 }}
                     whileHover={{
                       scale: 1.1,
-                      y: -5,
                     }}
                     whileTap={{ scale: 0.95 }}
                     className={`p-4 backdrop-blur-sm border rounded-2xl transition-all duration-300 group ${
@@ -369,7 +420,15 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
 
             {/* Availability Status */}
             <motion.div
-              variants={itemVariants}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                delay: 0.8,
+                duration: 0.6,
+                type: "spring",
+                stiffness: 300,
+              }}
+              whileHover={{ scale: 1.02 }}
               className="p-6 bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/30 rounded-2xl"
             >
               <div className="flex items-center gap-3 mb-3">
@@ -384,19 +443,27 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                     repeat: Infinity,
                   }}
                 />
-                <span className="text-green-400 font-medium">
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1, duration: 0.5 }}
+                  className="text-green-400 font-medium"
+                >
                   {language === "es"
                     ? "Disponible para trabajar"
                     : "Available for work"}
-                </span>
+                </motion.span>
               </div>
-              <p
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2, duration: 0.5 }}
                 className={`text-sm ${theme === "dark" ? "text-gray-300" : "text-gray-600"}`}
               >
                 {language === "es"
                   ? "Abierto a nuevas oportunidades y proyectos emocionantes. ¡Creemos algo increíble juntos!"
                   : "Open to new opportunities and exciting projects. Let's create something amazing together!"}
-              </p>
+              </motion.p>
             </motion.div>
           </motion.div>
         </div>
@@ -404,9 +471,9 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
         {/* Notification */}
         {notification && (
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.99 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.99 }}
             className="fixed bottom-6 right-6 z-50 max-w-sm"
           >
             <div

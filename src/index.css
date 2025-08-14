@@ -10,13 +10,60 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: "Montserrat", sans-serif;
   background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #0f172a 100%);
   overflow-x: hidden;
+  overflow-y: hidden; /* Iniciar con overflow oculto por defecto */
   transition: overflow 0.3s ease;
+}
+
+/* Solo aplicar restricciones de altura en pantallas grandes */
+@media (min-width: 768px) and (min-height: 600px) {
+  body {
+    height: 100vh;
+    max-height: 100vh;
+  }
+
+  #root {
+    max-height: 100vh;
+    overflow: hidden;
+  }
+}
+
+/* En mobile y pantallas pequeñas, permitir altura natural */
+@media (max-width: 767px), (max-height: 599px) {
+  body {
+    height: auto;
+    max-height: none;
+  }
+
+  #root {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* Ajustes especiales para pantallas con poca altura */
+@media (max-height: 700px) {
+  .hero-container {
+    padding-top: 5rem !important; /* pt-20 */
+  }
+}
+
+@media (max-height: 600px) {
+  .hero-container {
+    padding-top: 4rem !important; /* pt-16 */
+  }
+}
+
+/* Clase para permitir scroll después de las animaciones */
+body.allow-scroll {
+  overflow-y: auto !important;
 }
 
 /* Clase para controlar overflow durante animaciones */
@@ -51,6 +98,7 @@ body.overflow-hidden {
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

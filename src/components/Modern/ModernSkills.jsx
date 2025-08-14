@@ -14,13 +14,12 @@ export const ModernSkills = ({ language = "es", theme = "dark" }) => {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0, scale: 0.95 },
+    hidden: { opacity: 0, scale: 0.99 },
     visible: {
-      y: 0,
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
         ease: [0.25, 0.25, 0.25, 1],
       },
     },
@@ -92,7 +91,9 @@ export const ModernSkills = ({ language = "es", theme = "dark" }) => {
           {dataStack.map((skill, index) => (
             <motion.div
               key={skill.id}
-              variants={skillCardVariants}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 + index * 0.1 }}
               whileHover="hover"
               className="group relative"
             >

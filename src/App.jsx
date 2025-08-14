@@ -10,34 +10,88 @@ function App() {
   const [currentSection, setCurrentSection] = useState(0);
   const [language, setLanguage] = useState("es"); // "es" or "en"
   const [theme, setTheme] = useState("dark"); // "dark" or "light"
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Solo ocultar overflow en la carga inicial
+  // Detectar si es mobile o pantalla pequeña
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsInitialLoad(false);
-    }, 1000); // Solo en la primera carga
+    const checkIsMobile = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      // Considerar mobile si el ancho es menor a 768px o la altura es menor a 600px
+      setIsMobile(width < 768 || height < 600);
+    };
 
-    return () => clearTimeout(timer);
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => window.removeEventListener("resize", checkIsMobile);
   }, []);
 
-  // Controlar overflow solo en carga inicial
+  // Controlar overflow durante animaciones (carga inicial y transiciones)
   useEffect(() => {
-    if (isInitialLoad) {
+    // En mobile, siempre permitir scroll
+    if (isMobile) {
+      document.body.classList.remove("overflow-hidden");
+      document.body.classList.add("allow-scroll");
+      return;
+    }
+
+    // En desktop, controlar overflow durante animaciones
+    if (isAnimating) {
+      document.body.classList.remove("allow-scroll");
       document.body.classList.add("overflow-hidden");
     } else {
       document.body.classList.remove("overflow-hidden");
+      document.body.classList.add("allow-scroll");
     }
 
     // Cleanup al desmontar el componente
     return () => {
       document.body.classList.remove("overflow-hidden");
+      document.body.classList.add("allow-scroll");
     };
-  }, [isInitialLoad]);
+  }, [isAnimating, isMobile]);
+
+  // Detectar cuando terminan las animaciones
+  useEffect(() => {
+    // En mobile, no controlar animaciones de overflow
+    if (isMobile) return;
+
+    setIsAnimating(true); // Activar control de overflow en cada cambio
+
+    const timer = setTimeout(() => {
+      setIsAnimating(false);
+    }, 500); // Reducir tiempo ya que no hay desplazamientos
+
+    return () => clearTimeout(timer);
+  }, [currentSection, isMobile]); // Reset cuando cambia la sección o el estado mobile
+
+  // Control adicional para carga inicial
+  useEffect(() => {
+    // En mobile, permitir scroll desde el inicio
+    if (isMobile) {
+      document.body.classList.remove("overflow-hidden");
+      document.body.classList.add("allow-scroll");
+      setIsAnimating(false);
+      return;
+    }
+
+    // En desktop, asegurar que overflow esté oculto desde el inicio
+    document.body.classList.remove("allow-scroll");
+    document.body.classList.add("overflow-hidden");
+
+    const timer = setTimeout(() => {
+      setIsAnimating(false);
+    }, 800); // Reducir tiempo para carga inicial
+
+    return () => clearTimeout(timer);
+  }, [isMobile]); // Dependencia en isMobile para reaccionar a cambios
 
   const navigateToSection = (sectionIndex) => {
     if (sectionIndex >= 0 && sectionIndex < 4) {
       // 4 sections total
+      setIsAnimating(true); // Activar control de overflow antes del cambio
       setCurrentSection(sectionIndex);
     }
   };
@@ -100,14 +154,15 @@ function App() {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSection}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{
-            duration: 0.5,
+            duration: 0.3,
             ease: [0.25, 0.25, 0.25, 1],
           }}
           className="w-full"
+          onAnimationComplete={() => setIsAnimating(false)}
         >
           {sections[currentSection].component}
         </motion.div>

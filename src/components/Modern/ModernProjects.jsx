@@ -91,12 +91,12 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { opacity: 0, scale: 0.99 },
     visible: {
-      y: 0,
       opacity: 1,
+      scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.3,
         ease: [0.25, 0.25, 0.25, 1],
       },
     },
@@ -105,12 +105,10 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
   const projectCardVariants = {
     hidden: {
       opacity: 0,
-      y: 20,
-      scale: 0.95,
+      scale: 0.99,
     },
     visible: {
       opacity: 1,
-      y: 0,
       scale: 1,
       transition: {
         duration: 0.6,
@@ -167,7 +165,9 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
             {projects.map((project, index) => (
               <motion.div
                 key={index}
-                variants={projectCardVariants}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 + index * 0.15 }}
                 whileHover="hover"
                 onHoverStart={() => setHoveredProject(index)}
                 onHoverEnd={() => setHoveredProject(null)}
