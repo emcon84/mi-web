@@ -107,7 +107,7 @@ function App() {
   const sections = [
     {
       id: 0,
-      name: language === "es" ? "Inicio" : "Hero",
+      name: language === "es" ? "Inicio" : "Home",
       component: (
         <ModernHero
           onNavigate={navigateToSection}
