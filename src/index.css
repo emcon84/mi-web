@@ -10,12 +10,24 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
   font-family: "Montserrat", sans-serif;
   background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
   overflow-x: hidden;
+  height: 100%;
+  transition: overflow 0.3s ease;
+}
+
+/* Clase para controlar overflow durante animaciones */
+body.overflow-hidden {
+  overflow: hidden !important;
+}
+
+#root {
+  height: 100%;
 }
 
 /* Custom scrollbar */

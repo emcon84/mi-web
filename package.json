@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@reduxjs/toolkit": "^1.8.5",
     "daisyui": "^2.24.2",
     "dotenv": "^16.0.2",

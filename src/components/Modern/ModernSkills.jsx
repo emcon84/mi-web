@@ -14,13 +14,13 @@ export const ModernSkills = ({ language = "es", theme = "dark" }) => {
   };
 
   const itemVariants = {
-    hidden: { y: 50, opacity: 0, scale: 0.8 },
+    hidden: { y: 20, opacity: 0, scale: 0.95 },
     visible: {
       y: 0,
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: [0.25, 0.25, 0.25, 1],
       },
     },

@@ -6,7 +6,10 @@ import {
   HiPhone,
   HiLocationMarker,
   HiPaperAirplane,
+  HiCheckCircle,
+  HiExclamationCircle,
 } from "react-icons/hi";
+import { sendEmailHybrid } from "../../services/emailService";
 
 export const ModernContact = ({ language = "es", theme = "dark" }) => {
   const [formData, setFormData] = useState({
@@ -15,6 +18,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -28,12 +32,12 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
   };
 
   const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         ease: [0.25, 0.25, 0.25, 1],
       },
     },
@@ -46,22 +50,35 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
     });
   };
 
+  const showNotification = (type, message) => {
+    setNotification({ type, message });
+    setTimeout(() => setNotification(null), 5000);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const result = await sendEmailHybrid(formData, language);
 
-    // Create mailto link
-    const subject = `Message from ${formData.name}`;
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    const mailtoLink = `mailto:emcon84@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
+      if (result.success) {
+        showNotification("success", result.message);
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        showNotification("error", result.message);
+      }
+    } catch (error) {
+      console.error("Error enviando email:", error);
+      showNotification(
+        "error",
+        language === "es"
+          ? "Hubo un error inesperado. Inténtalo nuevamente."
+          : "There was an unexpected error. Please try again."
+      );
+    }
 
     setIsSubmitting(false);
-    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
@@ -383,6 +400,35 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Notification */}
+        {notification && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            className="fixed bottom-6 right-6 z-50 max-w-sm"
+          >
+            <div
+              className={`p-4 rounded-2xl backdrop-blur-sm border flex items-center gap-3 shadow-lg ${
+                notification.type === "success"
+                  ? theme === "dark"
+                    ? "bg-green-900/90 border-green-500/50 text-green-100"
+                    : "bg-green-100 border-green-300 text-green-800"
+                  : theme === "dark"
+                    ? "bg-red-900/90 border-red-500/50 text-red-100"
+                    : "bg-red-100 border-red-300 text-red-800"
+              }`}
+            >
+              {notification.type === "success" ? (
+                <HiCheckCircle className="text-2xl flex-shrink-0" />
+              ) : (
+                <HiExclamationCircle className="text-2xl flex-shrink-0" />
+              )}
+              <p className="text-sm font-medium">{notification.message}</p>
+            </div>
+          </motion.div>
+        )}
       </motion.div>
     </div>
   );

@@ -91,12 +91,12 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
   };
 
   const itemVariants = {
-    hidden: { y: 60, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         ease: [0.25, 0.25, 0.25, 1],
       },
     },
@@ -105,8 +105,8 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
   const projectCardVariants = {
     hidden: {
       opacity: 0,
-      y: 50,
-      scale: 0.9,
+      y: 20,
+      scale: 0.95,
     },
     visible: {
       opacity: 1,

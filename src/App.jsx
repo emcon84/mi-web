@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ModernHero } from "./components/Modern/ModernHero";
 import { ModernProjects } from "./components/Modern/ModernProjects";
@@ -10,10 +10,35 @@ function App() {
   const [currentSection, setCurrentSection] = useState(0);
   const [language, setLanguage] = useState("es"); // "es" or "en"
   const [theme, setTheme] = useState("dark"); // "dark" or "light"
+  const [isAnimating, setIsAnimating] = useState(true);
+
+  // Controlar el overflow del body durante las animaciones
+  useEffect(() => {
+    if (isAnimating) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    // Cleanup al desmontar el componente
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isAnimating]);
+
+  // Detectar cuando terminan las animaciones iniciales
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsAnimating(false);
+    }, 800); // Duración más corta
+
+    return () => clearTimeout(timer);
+  }, [currentSection]); // Reset cuando cambia la sección
 
   const navigateToSection = (sectionIndex) => {
     if (sectionIndex >= 0 && sectionIndex < 4) {
       // 4 sections total
+      setIsAnimating(true); // Activar control de overflow
       setCurrentSection(sectionIndex);
     }
   };
@@ -57,7 +82,7 @@ function App() {
 
   return (
     <div
-      className={`relative min-h-screen ${
+      className={`relative min-h-screen overflow-hidden ${
         theme === "dark"
           ? "bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
           : "bg-gradient-to-br from-gray-100 via-blue-100 to-gray-100"
@@ -76,14 +101,15 @@ function App() {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSection}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -50 }}
+          exit={{ opacity: 0, y: -10 }}
           transition={{
-            duration: 0.8,
+            duration: 0.5,
             ease: [0.25, 0.25, 0.25, 1],
           }}
-          className="w-full"
+          className="w-full h-screen"
+          onAnimationComplete={() => setIsAnimating(false)}
         >
           {sections[currentSection].component}
         </motion.div>
