@@ -171,7 +171,7 @@ export const BlogPost = ({ post, language = "es", theme = "dark", onBack }) => {
       />
 
       <div
-        className={`min-h-screen py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-32 overflow-y-auto transition-colors duration-300`}
+        className={`min-h-screen py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-32 overflow-y-auto transition-colors duration-300 pb-32`}
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}

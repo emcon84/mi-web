@@ -333,29 +333,6 @@ export const ModernNavigation = ({
                 )}
               </motion.button>
             ))}
-
-            {/* CV Button within navigation */}
-            <motion.a
-              href="/src/assets/doc/Emiliano-contiCV.pdf"
-              download
-              className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all duration-300 ${
-                theme === "dark"
-                  ? "text-white/60 hover:text-white hover:bg-white/10"
-                  : "text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-              }`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label={
-                language === "es"
-                  ? "Descargar CV de Emiliano Conti"
-                  : "Download Emiliano Conti's CV"
-              }
-            >
-              <motion.div>
-                <HiDocumentDownload className="text-xl" />
-              </motion.div>
-              <span className="text-xs font-medium mt-1">CV</span>
-            </motion.a>
           </motion.nav>
         </motion.div>
       )}
