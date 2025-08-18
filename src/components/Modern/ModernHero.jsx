@@ -256,7 +256,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
         </motion.div>
 
         {/* Tech Stack Pills */}
-        <motion.div variants={itemVariants} className="mb-12">
+        <motion.div variants={itemVariants} className="mb-12 hidden md:block">
           <div className="flex flex-wrap justify-center gap-3">
             {["React", "Next.js", "TypeScript", "Tailwind", "Node.js"].map(
               (tech, index) => (
