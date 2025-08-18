@@ -11,6 +11,7 @@ import {
   HiCode,
   HiMail,
   HiDocumentDownload,
+  HiNewspaper,
 } from "react-icons/hi";
 
 export const ModernNavigation = ({
@@ -43,8 +44,8 @@ export const ModernNavigation = ({
     <HiHome className="text-xl" />,
     <HiUser className="text-xl" />,
     <HiCode className="text-xl" />,
-    <HiMail className="text-xl" />,
-    <HiDocumentDownload className="text-xl" />, // Icono para CV
+    <HiNewspaper className="text-xl" />, // Icono para Blog
+    <HiMail className="text-xl" />, // Icono para Contacto
   ];
 
   return (
@@ -350,7 +351,9 @@ export const ModernNavigation = ({
                   : "Download Emiliano Conti's CV"
               }
             >
-              <motion.div>{mobileIcons[4]}</motion.div>
+              <motion.div>
+                <HiDocumentDownload className="text-xl" />
+              </motion.div>
               <span className="text-xs font-medium mt-1">CV</span>
             </motion.a>
           </motion.nav>
