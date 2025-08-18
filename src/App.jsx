@@ -27,8 +27,9 @@ function App() {
     const checkIsMobile = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
-      // Considerar mobile si el ancho es menor a 768px o la altura es menor a 600px
-      setIsMobile(width < 768 || height < 600);
+      // Considerar mobile/small screen si el ancho es menor a 1024px o la altura es menor a 700px
+      // Esto incluye tablets, pantallas pequeñas de PC y móviles
+      setIsMobile(width < 1024 || height < 700);
     };
 
     checkIsMobile();
@@ -39,14 +40,14 @@ function App() {
 
   // Controlar overflow durante animaciones (carga inicial y transiciones)
   useEffect(() => {
-    // En mobile, siempre permitir scroll
+    // En pantallas pequeñas (mobile, tablets, PCs pequeñas), siempre permitir scroll
     if (isMobile) {
       document.body.classList.remove("overflow-hidden");
       document.body.classList.add("allow-scroll");
       return;
     }
 
-    // En desktop, controlar overflow durante animaciones
+    // En desktop grande, controlar overflow durante animaciones
     if (isAnimating) {
       document.body.classList.remove("allow-scroll");
       document.body.classList.add("overflow-hidden");
@@ -64,7 +65,7 @@ function App() {
 
   // Detectar cuando terminan las animaciones
   useEffect(() => {
-    // En mobile, no controlar animaciones de overflow
+    // En pantallas pequeñas, no controlar animaciones de overflow
     if (isMobile) return;
 
     setIsAnimating(true); // Activar control de overflow en cada cambio
@@ -78,7 +79,7 @@ function App() {
 
   // Control adicional para carga inicial
   useEffect(() => {
-    // En mobile, permitir scroll desde el inicio
+    // En pantallas pequeñas, permitir scroll desde el inicio
     if (isMobile) {
       document.body.classList.remove("overflow-hidden");
       document.body.classList.add("allow-scroll");
@@ -86,7 +87,7 @@ function App() {
       return;
     }
 
-    // En desktop, asegurar que overflow esté oculto desde el inicio
+    // En desktop grande, asegurar que overflow esté oculto desde el inicio
     document.body.classList.remove("allow-scroll");
     document.body.classList.add("overflow-hidden");
 

@@ -125,7 +125,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16"
       >
         {/* Profile Image */}
         <motion.div

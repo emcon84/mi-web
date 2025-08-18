@@ -36,8 +36,7 @@ body {
   }
 }
 
-/* En mobile y pantallas pequeñas, permitir altura natural */
-@media (max-width: 767px), (max-height: 599px) {
+@media (max-width: 1200px), (max-height: 920px) {
   body {
     height: auto;
     max-height: none;

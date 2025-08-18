@@ -124,7 +124,7 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-32 pb-8 md:pb-12">
+    <div className="min-h-screen flex flex-col py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-32 pb-8 md:pb-12 mb-8 lg:mb-0">
       <motion.div
         variants={containerVariants}
         initial="hidden"

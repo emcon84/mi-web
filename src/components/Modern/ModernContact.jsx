@@ -188,7 +188,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
             </span>
           </h2>
           <p
-            className={`text-sm md:text-base max-w-xl mx-auto px-4 ${theme === "dark" ? "text-gray-300" : "text-gray-600"}`}
+            className={`text-sm md:text-base max-w-2xl mx-auto px-4 ${theme === "dark" ? "text-gray-300" : "text-gray-600"}`}
           >
             {language === "es"
               ? "¿Listo para dar vida a tus ideas? Hablemos sobre tu próximo proyecto"
@@ -463,7 +463,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
           {/* Contact Info */}
           <motion.div
             variants={itemVariants}
-            className="space-y-8"
+            className="space-y-8 mb-32 md:mb-0"
             role="complementary"
             aria-labelledby="contact-info-title"
           >
@@ -672,7 +672,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                 stiffness: 300,
               }}
               whileHover={{ scale: 1.02 }}
-              className="p-6 bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/30 rounded-2xl"
+              className="p-6 bg-gradient-to-r from-green-500/10 to-blue-500/10 border border-green-500/30 rounded-2xl "
             >
               <div className="flex items-center gap-3 mb-3">
                 <motion.div
