@@ -9,7 +9,6 @@ import { SEOHead } from "./components/SEO/SEOHead";
 import {
   SkipToContent,
   NavigationAnnouncer,
-  AccessibilityControls,
   useFocusManagement,
   useReducedMotion,
 } from "./components/Accessibility/AccessibilityComponents";
@@ -20,13 +19,10 @@ function App() {
   const [theme, setTheme] = useState("dark"); // "dark" or "light"
   const [isAnimating, setIsAnimating] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [animationsEnabled, setAnimationsEnabled] = useState(true);
 
   // Hooks de accesibilidad
   useFocusManagement();
   const prefersReducedMotion = useReducedMotion();
-
-  // Detectar si es mobile o pantalla pequeña
   useEffect(() => {
     const checkIsMobile = () => {
       const width = window.innerWidth;
@@ -40,13 +36,6 @@ function App() {
 
     return () => window.removeEventListener("resize", checkIsMobile);
   }, []);
-
-  // Configurar animaciones basado en preferencias de accesibilidad
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      setAnimationsEnabled(false);
-    }
-  }, [prefersReducedMotion]);
 
   // Controlar overflow durante animaciones (carga inicial y transiciones)
   useEffect(() => {
@@ -122,10 +111,6 @@ function App() {
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
-
-  const toggleAnimations = () => {
-    setAnimationsEnabled((prev) => !prev);
   };
 
   const sections = [
@@ -253,7 +238,7 @@ function App() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{
-            duration: animationsEnabled ? 0.3 : 0.01,
+            duration: 0.3,
             ease: [0.25, 0.25, 0.25, 1],
           }}
           className="w-full"
@@ -265,14 +250,6 @@ function App() {
           {sections[currentSection].component}
         </motion.main>
       </AnimatePresence>
-
-      {/* Accessibility Controls */}
-      <AccessibilityControls
-        theme={theme}
-        language={language}
-        onToggleAnimations={toggleAnimations}
-        animationsEnabled={animationsEnabled}
-      />
     </div>
   );
 }
