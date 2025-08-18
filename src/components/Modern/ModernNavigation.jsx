@@ -81,7 +81,7 @@ export const ModernNavigation = ({
                 }`}
               >
                 <span className="hidden sm:inline">Emiliano Conti</span>
-                <span className="sm:hidden">E.C</span>
+                <span className="sm:hidden">Emiliano Conti</span>
               </span>
             </motion.div>
 
@@ -228,7 +228,7 @@ export const ModernNavigation = ({
                     : "from-blue-600 to-cyan-600"
                 }`}
               >
-                E.C
+                Emiliano Conti
               </span>
             </motion.div>
 

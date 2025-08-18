@@ -86,7 +86,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
 
   return (
     <section
-      className="hero-container relative min-h-screen flex items-center justify-center py-8 px-4 pt-8 md:pt-24 mb-16 lg:mb-0"
+      className="hero-container relative min-h-screen flex items-center justify-center py-8 px-4 pt-8 md:pt-24 lg:mb-0"
       aria-labelledby="hero-title"
       role="banner"
     >
