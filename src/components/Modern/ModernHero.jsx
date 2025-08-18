@@ -86,7 +86,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
 
   return (
     <section
-      className="hero-container relative min-h-screen flex items-center justify-center py-8 px-4 pt-20 md:pt-24"
+      className="hero-container relative min-h-screen flex items-center justify-center py-8 px-4 pt-8 md:pt-24 mb-16 lg:mb-0"
       aria-labelledby="hero-title"
       role="banner"
     >
@@ -125,7 +125,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16"
+        className="relative z-10 text-center max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-16"
       >
         {/* Profile Image */}
         <motion.div
@@ -317,7 +317,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
 
         {/* Social Links */}
         <motion.div variants={itemVariants}>
-          <div className="flex justify-center gap-4 md:gap-6">
+          <div className="flex justify-center items-center gap-4 md:gap-6 w-full">
             {[
               {
                 icon: AiFillGithub,
@@ -345,7 +345,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
                 transition={{ delay: 2.5 + index * 0.1, duration: 0.4 }}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
-                className={`p-2 md:p-3 backdrop-blur-sm border rounded-full transition-all duration-300 group ${
+                className={`p-3 md:p-4 backdrop-blur-sm border rounded-full transition-all duration-300 group flex items-center justify-center ${
                   theme === "dark"
                     ? "bg-white/10 border-white/20 text-white hover:bg-white/20"
                     : "bg-gray-800/80 border-gray-700/50 text-white hover:bg-gray-800"

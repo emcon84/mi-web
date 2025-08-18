@@ -52,7 +52,7 @@ export const ModernSkills = ({ language = "es", theme = "dark" }) => {
 
   return (
     <section
-      className="min-h-screen flex items-center justify-center py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-24 pb-8 md:pb-12"
+      className="min-h-screen flex items-center justify-center py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-24 pb-8 md:pb-12 mb-24 md:mb-0"
       aria-labelledby="skills-title"
       role="main"
     >
