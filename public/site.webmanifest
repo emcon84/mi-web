@@ -1,0 +1,35 @@
+{
+  "name": "Emiliano Conti - Portfolio",
+  "short_name": "EmilianoConti",
+  "description": "Frontend Developer Portfolio - React, JavaScript, Web Development",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e293b",
+  "theme_color": "#1e293b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/img/yo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/img/yo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "categories": [
+    "portfolio",
+    "developer",
+    "frontend"
+  ],
+  "screenshots": [
+    {
+      "src": "/img/Home.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "label": "Homepage of Emiliano Conti Portfolio"
+    }
+  ]
+}

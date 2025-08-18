@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://emilianoconti.dev/</loc>
+    <lastmod>2025-01-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://emilianoconti.dev/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://emilianoconti.dev/?lang=en" />
+  </url>
+  
+  <!-- Skills Section -->
+  <url>
+    <loc>https://emilianoconti.dev/#skills</loc>
+    <lastmod>2025-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://emilianoconti.dev/#skills?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://emilianoconti.dev/#skills?lang=en" />
+  </url>
+  
+  <!-- Projects Section -->
+  <url>
+    <loc>https://emilianoconti.dev/#projects</loc>
+    <lastmod>2025-01-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://emilianoconti.dev/#projects?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://emilianoconti.dev/#projects?lang=en" />
+  </url>
+  
+  <!-- Contact Section -->
+  <url>
+    <loc>https://emilianoconti.dev/#contact</loc>
+    <lastmod>2025-01-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://emilianoconti.dev/#contact?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://emilianoconti.dev/#contact?lang=en" />
+  </url>
+  
+</urlset>

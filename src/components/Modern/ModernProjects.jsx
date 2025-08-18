@@ -164,14 +164,13 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
           >
             {projects.map((project, index) => (
               <motion.div
-                key={index}
+                className="group relative cursor-pointer"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 + index * 0.15 }}
                 whileHover="hover"
                 onHoverStart={() => setHoveredProject(index)}
                 onHoverEnd={() => setHoveredProject(null)}
-                className="group relative cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Project Card */}

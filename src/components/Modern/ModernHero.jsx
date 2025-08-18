@@ -85,7 +85,11 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
   };
 
   return (
-    <div className="hero-container relative min-h-screen flex items-center justify-center py-8 px-4 pt-20 md:pt-24">
+    <section
+      className="hero-container relative min-h-screen flex items-center justify-center py-8 px-4 pt-20 md:pt-24"
+      aria-labelledby="hero-title"
+      role="banner"
+    >
       {/* Dynamic Background */}
       <motion.div
         className="absolute inset-0 opacity-30"
@@ -196,9 +200,12 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
           />
         </motion.div>
 
-        {/* Main Title */}
+        {/* Main Title with Simple Animations */}
         <motion.div variants={itemVariants} className="mb-4 md:mb-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4">
+          <h1
+            id="hero-title"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4"
+          >
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -350,6 +357,6 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
           </div>
         </motion.div>
       </motion.div>
-    </div>
+    </section>
   );
 };

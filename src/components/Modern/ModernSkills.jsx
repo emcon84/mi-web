@@ -51,7 +51,11 @@ export const ModernSkills = ({ language = "es", theme = "dark" }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-24 pb-8 md:pb-12">
+    <section
+      className="min-h-screen flex items-center justify-center py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-24 pb-8 md:pb-12"
+      aria-labelledby="skills-title"
+      role="main"
+    >
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -63,7 +67,10 @@ export const ModernSkills = ({ language = "es", theme = "dark" }) => {
           variants={itemVariants}
           className="text-center mb-6 md:mb-8"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+          <h2
+            id="skills-title"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3"
+          >
             <span
               className={`bg-gradient-to-r bg-clip-text text-transparent ${
                 theme === "dark"
@@ -184,6 +191,6 @@ export const ModernSkills = ({ language = "es", theme = "dark" }) => {
           </p>
         </motion.div>
       </motion.div>
-    </div>
+    </section>
   );
 };

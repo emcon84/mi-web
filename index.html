@@ -1,23 +1,97 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Favicon and App Icons -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/yo.jpeg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/vite.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/vite.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Viewport and Mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="theme-color" content="#1e293b" />
+
+    <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+
+    <!-- Font loading with display=swap for better performance -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="src/AnimateBackground.css" />
-    <title>Emiliano Conti</title>
+
+    <!-- Preload critical CSS -->
+    <link
+      rel="preload"
+      href="src/AnimateBackground.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="src/AnimateBackground.css"
+    /></noscript>
+
+    <!-- Default meta tags (will be overridden by React Helmet) -->
+    <title>Emiliano Conti - Frontend Developer | Portfolio</title>
+    <meta
+      name="description"
+      content="Frontend Developer con más de 8 años de experiencia en React, JavaScript y desarrollo web moderno. Portfolio con proyectos innovadores y soluciones creativas."
+    />
+    <meta
+      name="keywords"
+      content="frontend developer, react developer, javascript, web development, portfolio, emiliano conti"
+    />
+    <meta name="author" content="Emiliano Conti" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Emiliano Conti - Frontend Developer" />
+    <meta
+      property="og:description"
+      content="Frontend Developer con más de 8 años de experiencia en React y JavaScript"
+    />
+    <meta property="og:image" content="/img/yo.jpeg" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@emcon84" />
   </head>
 
   <body class="relative">
+    <!-- Background gradient -->
     <div class="animated-gradient"></div>
-    <!-- El fondo va aparte -->
+
+    <!-- Main app container -->
     <div id="root" class="relative z-10"></div>
+
+    <!-- Module script -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- No JavaScript fallback -->
+    <noscript>
+      <div
+        style="
+          text-align: center;
+          padding: 2rem;
+          font-family: Arial, sans-serif;
+        "
+      >
+        <h1>Emiliano Conti - Frontend Developer</h1>
+        <p>Este sitio requiere JavaScript para funcionar correctamente.</p>
+        <p>
+          Por favor, habilita JavaScript en tu navegador para ver el contenido
+          completo.
+        </p>
+      </div>
+    </noscript>
   </body>
 </html>

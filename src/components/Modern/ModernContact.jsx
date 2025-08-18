@@ -17,8 +17,57 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
     email: "",
     message: "",
   });
+  const [formErrors, setFormErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [notification, setNotification] = useState(null);
+
+  const validateField = (name, value) => {
+    switch (name) {
+      case "name":
+        if (!value.trim()) {
+          return language === "es"
+            ? "El nombre es obligatorio"
+            : "Name is required";
+        }
+        if (value.trim().length < 2) {
+          return language === "es"
+            ? "El nombre debe tener al menos 2 caracteres"
+            : "Name must be at least 2 characters";
+        }
+        return "";
+      case "email":
+        if (!value.trim()) {
+          return language === "es"
+            ? "El email es obligatorio"
+            : "Email is required";
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          return language === "es"
+            ? "Ingresa un email válido"
+            : "Please enter a valid email";
+        }
+        return "";
+      case "message":
+        if (!value.trim()) {
+          return language === "es"
+            ? "El mensaje es obligatorio"
+            : "Message is required";
+        }
+        if (value.trim().length < 10) {
+          return language === "es"
+            ? "El mensaje debe tener al menos 10 caracteres"
+            : "Message must be at least 10 characters";
+        }
+        return "";
+      default:
+        return "";
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,9 +93,17 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
   };
 
   const handleInputChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
+    });
+
+    // Validate field in real time
+    const error = validateField(name, value);
+    setFormErrors({
+      ...formErrors,
+      [name]: error,
     });
   };
 
@@ -57,6 +114,30 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate all fields
+    const errors = {
+      name: validateField("name", formData.name),
+      email: validateField("email", formData.email),
+      message: validateField("message", formData.message),
+    };
+
+    setFormErrors(errors);
+
+    // Check if there are any errors
+    const hasErrors = Object.values(errors).some((error) => error !== "");
+    if (hasErrors) {
+      // Focus on first error field
+      const firstErrorField = Object.keys(errors).find(
+        (key) => errors[key] !== ""
+      );
+      const element = document.getElementById(`contact-${firstErrorField}`);
+      if (element) {
+        element.focus();
+      }
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -65,6 +146,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
       if (result.success) {
         showNotification("success", result.message);
         setFormData({ name: "", email: "", message: "" });
+        setFormErrors({ name: "", email: "", message: "" });
       } else {
         showNotification("error", result.message);
       }
@@ -146,11 +228,26 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
             >
               <h3
                 className={`text-2xl font-bold mb-8 ${theme === "dark" ? "text-white" : "text-gray-800"}`}
+                id="contact-form-title"
               >
                 {language === "es" ? "Enviar Mensaje" : "Send a Message"}
               </h3>
 
-              <div className="space-y-6">
+              <div
+                className="space-y-6"
+                role="form"
+                aria-labelledby="contact-form-title"
+                aria-describedby="form-instructions"
+              >
+                <div
+                  id="form-instructions"
+                  className="sr-only"
+                  aria-live="polite"
+                >
+                  {language === "es"
+                    ? "Complete el formulario para enviar un mensaje. Todos los campos son obligatorios."
+                    : "Fill out the form to send a message. All fields are required."}
+                </div>
                 {/* Name Input */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -159,20 +256,41 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                   whileHover={{ scale: 1.02 }}
                   className="relative"
                 >
+                  <label
+                    htmlFor="contact-name"
+                    className={`block text-sm font-medium mb-2 ${
+                      theme === "dark" ? "text-white" : "text-gray-700"
+                    }`}
+                  >
+                    {language === "es" ? "Nombre *" : "Name *"}
+                  </label>
                   <motion.input
                     type="text"
+                    id="contact-name"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder={language === "es" ? "Tu Nombre" : "Your Name"}
                     required
+                    aria-required="true"
+                    aria-describedby="name-error"
+                    aria-invalid={formErrors.name ? "true" : "false"}
                     className={`w-full px-6 py-4 border rounded-2xl focus:outline-none transition-all duration-300 ${
-                      theme === "dark"
-                        ? "bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-green-400 focus:bg-white/10"
-                        : "bg-gray-100 border-gray-300 text-gray-800 placeholder-gray-500 focus:border-green-500 focus:bg-white"
+                      formErrors.name
+                        ? "border-red-500 focus:border-red-500"
+                        : theme === "dark"
+                          ? "bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-green-400 focus:bg-white/10"
+                          : "bg-gray-100 border-gray-300 text-gray-800 placeholder-gray-500 focus:border-green-500 focus:bg-white"
                     }`}
                     whileFocus={{ scale: 1.02 }}
                   />
+                  <div
+                    id="name-error"
+                    className={`mt-1 text-sm ${formErrors.name ? "text-red-500" : "sr-only"}`}
+                    aria-live="polite"
+                  >
+                    {formErrors.name || ""}
+                  </div>
                 </motion.div>
 
                 {/* Email Input */}
@@ -183,20 +301,51 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                   whileHover={{ scale: 1.02 }}
                   className="relative"
                 >
+                  <label
+                    htmlFor="contact-email"
+                    className={`block text-sm font-medium mb-2 ${
+                      theme === "dark" ? "text-white" : "text-gray-700"
+                    }`}
+                  >
+                    {language === "es" ? "Email *" : "Email *"}
+                  </label>
                   <motion.input
                     type="email"
+                    id="contact-email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder={language === "es" ? "Tu Email" : "Your Email"}
+                    placeholder={
+                      language === "es" ? "tu@email.com" : "your@email.com"
+                    }
                     required
+                    aria-required="true"
+                    aria-describedby="email-error email-help"
+                    aria-invalid={formErrors.email ? "true" : "false"}
                     className={`w-full px-6 py-4 border rounded-2xl focus:outline-none transition-all duration-300 ${
-                      theme === "dark"
-                        ? "bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-green-400 focus:bg-white/10"
-                        : "bg-gray-100 border-gray-300 text-gray-800 placeholder-gray-500 focus:border-green-500 focus:bg-white"
+                      formErrors.email
+                        ? "border-red-500 focus:border-red-500"
+                        : theme === "dark"
+                          ? "bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-green-400 focus:bg-white/10"
+                          : "bg-gray-100 border-gray-300 text-gray-800 placeholder-gray-500 focus:border-green-500 focus:bg-white"
                     }`}
                     whileFocus={{ scale: 1.02 }}
                   />
+                  <div
+                    id="email-help"
+                    className={`text-xs mt-1 ${theme === "dark" ? "text-gray-400" : "text-gray-600"} ${formErrors.email ? "hidden" : ""}`}
+                  >
+                    {language === "es"
+                      ? "Ingresa una dirección de email válida"
+                      : "Enter a valid email address"}
+                  </div>
+                  <div
+                    id="email-error"
+                    className={`mt-1 text-sm ${formErrors.email ? "text-red-500" : "sr-only"}`}
+                    aria-live="polite"
+                  >
+                    {formErrors.email || ""}
+                  </div>
                 </motion.div>
 
                 {/* Message Input */}
@@ -207,22 +356,53 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                   whileHover={{ scale: 1.02 }}
                   className="relative"
                 >
+                  <label
+                    htmlFor="contact-message"
+                    className={`block text-sm font-medium mb-2 ${
+                      theme === "dark" ? "text-white" : "text-gray-700"
+                    }`}
+                  >
+                    {language === "es" ? "Mensaje *" : "Message *"}
+                  </label>
                   <motion.textarea
+                    id="contact-message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder={
-                      language === "es" ? "Tu Mensaje" : "Your Message"
+                      language === "es"
+                        ? "Escribe tu mensaje aquí..."
+                        : "Write your message here..."
                     }
                     rows={6}
                     required
+                    aria-required="true"
+                    aria-describedby="message-error message-help"
+                    aria-invalid={formErrors.message ? "true" : "false"}
                     className={`w-full px-6 py-4 border rounded-2xl focus:outline-none transition-all duration-300 resize-none ${
-                      theme === "dark"
-                        ? "bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-green-400 focus:bg-white/10"
-                        : "bg-gray-100 border-gray-300 text-gray-800 placeholder-gray-500 focus:border-green-500 focus:bg-white"
+                      formErrors.message
+                        ? "border-red-500 focus:border-red-500"
+                        : theme === "dark"
+                          ? "bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-green-400 focus:bg-white/10"
+                          : "bg-gray-100 border-gray-300 text-gray-800 placeholder-gray-500 focus:border-green-500 focus:bg-white"
                     }`}
                     whileFocus={{ scale: 1.02 }}
                   />
+                  <div
+                    id="message-help"
+                    className={`text-xs mt-1 ${theme === "dark" ? "text-gray-400" : "text-gray-600"} ${formErrors.message ? "hidden" : ""}`}
+                  >
+                    {language === "es"
+                      ? "Mínimo 10 caracteres"
+                      : "Minimum 10 characters"}
+                  </div>
+                  <div
+                    id="message-error"
+                    className={`mt-1 text-sm ${formErrors.message ? "text-red-500" : "sr-only"}`}
+                    aria-live="polite"
+                  >
+                    {formErrors.message || ""}
+                  </div>
                 </motion.div>
 
                 {/* Submit Button */}
@@ -234,18 +414,33 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                   transition={{ delay: 0.9, duration: 0.5 }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-2xl font-semibold text-lg shadow-lg shadow-green-500/25 hover:shadow-xl hover:shadow-green-500/40 transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                  aria-describedby="submit-help"
+                  aria-label={
+                    language === "es"
+                      ? "Enviar mensaje de contacto"
+                      : "Send contact message"
+                  }
+                  className="w-full px-8 py-4 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-2xl font-semibold text-lg shadow-lg shadow-green-500/25 hover:shadow-xl hover:shadow-green-500/40 transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed focus:ring-4 focus:ring-green-300 focus:ring-offset-2"
                 >
                   {isSubmitting ? (
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{
-                        duration: 1,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      className="w-6 h-6 border-2 border-white border-t-transparent rounded-full"
-                    />
+                    <>
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                        className="w-6 h-6 border-2 border-white border-t-transparent rounded-full"
+                        aria-hidden="true"
+                      />
+                      <span className="sr-only">
+                        {language === "es"
+                          ? "Enviando mensaje..."
+                          : "Sending message..."}
+                      </span>
+                      {language === "es" ? "Enviando..." : "Sending..."}
+                    </>
                   ) : (
                     <>
                       <HiPaperAirplane className="text-xl" />
@@ -253,15 +448,29 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                     </>
                   )}
                 </motion.button>
+                <div
+                  id="submit-help"
+                  className={`text-xs mt-2 text-center ${theme === "dark" ? "text-gray-400" : "text-gray-600"}`}
+                >
+                  {language === "es"
+                    ? "Al enviar aceptas que podemos contactarte por email"
+                    : "By submitting you agree that we may contact you by email"}
+                </div>
               </div>
             </motion.form>
           </motion.div>
 
           {/* Contact Info */}
-          <motion.div variants={itemVariants} className="space-y-8">
+          <motion.div
+            variants={itemVariants}
+            className="space-y-8"
+            role="complementary"
+            aria-labelledby="contact-info-title"
+          >
             {/* Contact Details */}
             <div className="space-y-6">
               <motion.h3
+                id="contact-info-title"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
@@ -281,6 +490,12 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                     ? "bg-white/5 border-white/10 hover:bg-white/10"
                     : "bg-white/80 border-gray-200 hover:bg-white hover:shadow-md"
                 }`}
+                role="group"
+                aria-label={
+                  language === "es"
+                    ? "Información de email"
+                    : "Email information"
+                }
               >
                 <motion.div
                   animate={{
@@ -296,6 +511,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                       ? "bg-gradient-to-br from-green-500/20 to-blue-500/20"
                       : "bg-gradient-to-br from-green-100 to-blue-100"
                   }`}
+                  aria-hidden="true"
                 >
                   <HiMail
                     className={`text-2xl ${
@@ -311,13 +527,21 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                   >
                     Email
                   </p>
-                  <p
-                    className={`font-medium ${
-                      theme === "dark" ? "text-white" : "text-gray-800"
+                  <a
+                    href="mailto:emcon84@gmail.com"
+                    className={`font-medium hover:underline focus:underline focus:outline-none ${
+                      theme === "dark"
+                        ? "text-white hover:text-green-400"
+                        : "text-gray-800 hover:text-green-600"
                     }`}
+                    aria-label={
+                      language === "es"
+                        ? "Enviar email a emcon84@gmail.com"
+                        : "Send email to emcon84@gmail.com"
+                    }
                   >
                     emcon84@gmail.com
-                  </p>
+                  </a>
                 </div>
               </motion.div>
 
@@ -331,6 +555,12 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                     ? "bg-white/5 border-white/10 hover:bg-white/10"
                     : "bg-white/80 border-gray-200 hover:bg-white hover:shadow-md"
                 }`}
+                role="group"
+                aria-label={
+                  language === "es"
+                    ? "Información de ubicación"
+                    : "Location information"
+                }
               >
                 <motion.div
                   animate={{
@@ -346,6 +576,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                       ? "bg-gradient-to-br from-blue-500/20 to-cyan-500/20"
                       : "bg-gradient-to-br from-blue-100 to-cyan-100"
                   }`}
+                  aria-hidden="true"
                 >
                   <HiLocationMarker
                     className={`text-2xl ${
@@ -359,7 +590,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                       theme === "dark" ? "text-gray-400" : "text-gray-600"
                     }`}
                   >
-                    Location
+                    {language === "es" ? "Ubicación" : "Location"}
                   </p>
                   <p
                     className={`font-medium ${
@@ -373,8 +604,9 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
             </div>
 
             {/* Social Links */}
-            <div>
+            <div role="region" aria-labelledby="social-links-title">
               <motion.h4
+                id="social-links-title"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
@@ -382,9 +614,17 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                   theme === "dark" ? "text-white" : "text-gray-800"
                 }`}
               >
-                Follow Me
+                {language === "es" ? "Sígueme" : "Follow Me"}
               </motion.h4>
-              <div className="flex gap-4">
+              <div
+                className="flex gap-4"
+                role="list"
+                aria-label={
+                  language === "es"
+                    ? "Enlaces de redes sociales"
+                    : "Social media links"
+                }
+              >
                 {dataSocialNetwork.map((social, index) => (
                   <motion.a
                     key={social.name}
@@ -398,11 +638,13 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                       scale: 1.1,
                     }}
                     whileTap={{ scale: 0.95 }}
-                    className={`p-4 backdrop-blur-sm border rounded-2xl transition-all duration-300 group ${
+                    className={`p-4 backdrop-blur-sm border rounded-2xl transition-all duration-300 group focus:ring-4 focus:ring-green-300 focus:ring-offset-2 focus:outline-none ${
                       theme === "dark"
                         ? "bg-white/5 border-white/10 hover:bg-white/10"
                         : "bg-white/80 border-gray-200 hover:bg-white hover:shadow-md"
                     }`}
+                    role="listitem"
+                    aria-label={`${language === "es" ? "Visitar perfil de" : "Visit"} ${social.name} ${language === "es" ? "en nueva pestaña" : "profile in new tab"}`}
                   >
                     <div
                       className={`text-3xl transition-colors duration-300 ${
@@ -410,6 +652,7 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
                           ? "group-hover:text-green-400"
                           : "group-hover:text-green-600"
                       }`}
+                      aria-hidden="true"
                     >
                       {social.icon}
                     </div>
@@ -475,6 +718,9 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.99 }}
             className="fixed bottom-6 right-6 z-50 max-w-sm"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
           >
             <div
               className={`p-4 rounded-2xl backdrop-blur-sm border flex items-center gap-3 shadow-lg ${
@@ -488,11 +734,28 @@ export const ModernContact = ({ language = "es", theme = "dark" }) => {
               }`}
             >
               {notification.type === "success" ? (
-                <HiCheckCircle className="text-2xl flex-shrink-0" />
+                <HiCheckCircle
+                  className="text-2xl flex-shrink-0"
+                  aria-hidden="true"
+                />
               ) : (
-                <HiExclamationCircle className="text-2xl flex-shrink-0" />
+                <HiExclamationCircle
+                  className="text-2xl flex-shrink-0"
+                  aria-hidden="true"
+                />
               )}
-              <p className="text-sm font-medium">{notification.message}</p>
+              <p className="text-sm font-medium">
+                <span className="sr-only">
+                  {notification.type === "success"
+                    ? language === "es"
+                      ? "Éxito: "
+                      : "Success: "
+                    : language === "es"
+                      ? "Error: "
+                      : "Error: "}
+                </span>
+                {notification.message}
+              </p>
             </div>
           </motion.div>
         )}

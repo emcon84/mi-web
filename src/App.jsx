@@ -5,6 +5,14 @@ import { ModernProjects } from "./components/Modern/ModernProjects";
 import { ModernSkills } from "./components/Modern/ModernSkills";
 import { ModernContact } from "./components/Modern/ModernContact";
 import { ModernNavigation } from "./components/Modern/ModernNavigation";
+import { SEOHead } from "./components/SEO/SEOHead";
+import {
+  SkipToContent,
+  NavigationAnnouncer,
+  AccessibilityControls,
+  useFocusManagement,
+  useReducedMotion,
+} from "./components/Accessibility/AccessibilityComponents";
 
 function App() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -12,6 +20,11 @@ function App() {
   const [theme, setTheme] = useState("dark"); // "dark" or "light"
   const [isAnimating, setIsAnimating] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [animationsEnabled, setAnimationsEnabled] = useState(true);
+
+  // Hooks de accesibilidad
+  useFocusManagement();
+  const prefersReducedMotion = useReducedMotion();
 
   // Detectar si es mobile o pantalla pequeña
   useEffect(() => {
@@ -27,6 +40,13 @@ function App() {
 
     return () => window.removeEventListener("resize", checkIsMobile);
   }, []);
+
+  // Configurar animaciones basado en preferencias de accesibilidad
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setAnimationsEnabled(false);
+    }
+  }, [prefersReducedMotion]);
 
   // Controlar overflow durante animaciones (carga inicial y transiciones)
   useEffect(() => {
@@ -104,6 +124,10 @@ function App() {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
+  const toggleAnimations = () => {
+    setAnimationsEnabled((prev) => !prev);
+  };
+
   const sections = [
     {
       id: 0,
@@ -133,6 +157,57 @@ function App() {
     },
   ];
 
+  // SEO dinámico basado en la sección actual
+  const getSEOData = () => {
+    const sectionNames = ["home", "skills", "projects", "contact"];
+    const currentSectionName = sectionNames[currentSection] || "home";
+
+    const seoData = {
+      home: {
+        title:
+          language === "es"
+            ? "Emiliano Conti - Frontend Developer | Portfolio"
+            : "Emiliano Conti - Frontend Developer | Portfolio",
+        description:
+          language === "es"
+            ? "Frontend Developer con más de 8 años de experiencia en React, JavaScript y desarrollo web moderno. Especializado en crear aplicaciones web innovadoras y accesibles."
+            : "Frontend Developer with 8+ years of experience in React, JavaScript and modern web development. Specialized in creating innovative and accessible web applications.",
+      },
+      skills: {
+        title:
+          language === "es"
+            ? "Tecnologías | Emiliano Conti - Frontend Developer"
+            : "Technologies | Emiliano Conti - Frontend Developer",
+        description:
+          language === "es"
+            ? "Tecnologías y herramientas que domino: React, JavaScript, TypeScript, Node.js, MongoDB, CSS, Tailwind, Next.js y más. Stack completo de desarrollo frontend."
+            : "Technologies and tools I master: React, JavaScript, TypeScript, Node.js, MongoDB, CSS, Tailwind, Next.js and more. Complete frontend development stack.",
+      },
+      projects: {
+        title:
+          language === "es"
+            ? "Proyectos | Emiliano Conti - Frontend Developer"
+            : "Projects | Emiliano Conti - Frontend Developer",
+        description:
+          language === "es"
+            ? "Explora mis proyectos destacados: aplicaciones React, sistemas de gestión, dashboards y soluciones web completas desarrolladas con las últimas tecnologías."
+            : "Explore my featured projects: React applications, management systems, dashboards and complete web solutions developed with the latest technologies.",
+      },
+      contact: {
+        title:
+          language === "es"
+            ? "Contacto | Emiliano Conti - Frontend Developer"
+            : "Contact | Emiliano Conti - Frontend Developer",
+        description:
+          language === "es"
+            ? "¿Tienes un proyecto en mente? Contacta conmigo para discutir cómo puedo ayudarte a llevarlo a cabo. Disponible para proyectos remotos."
+            : "Have a project in mind? Contact me to discuss how I can help you bring it to life. Available for remote projects.",
+      },
+    };
+
+    return seoData[currentSectionName] || seoData.home;
+  };
+
   return (
     <div
       className={`relative min-h-screen ${
@@ -140,7 +215,26 @@ function App() {
           ? "bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
           : "bg-gradient-to-br from-gray-100 via-blue-100 to-gray-100"
       }`}
+      role="application"
+      aria-label={
+        language === "es"
+          ? "Portafolio de Emiliano Conti"
+          : "Emiliano Conti's Portfolio"
+      }
     >
+      {/* SEO Head with dynamic content */}
+      <SEOHead {...getSEOData()} language={language} />
+
+      {/* Skip to content link */}
+      <SkipToContent theme={theme} language={language} />
+
+      {/* Navigation announcer for screen readers */}
+      <NavigationAnnouncer
+        currentSection={currentSection}
+        sections={sections}
+        language={language}
+      />
+
       <ModernNavigation
         sections={sections}
         currentSection={currentSection}
@@ -152,21 +246,33 @@ function App() {
       />
 
       <AnimatePresence mode="wait">
-        <motion.div
+        <motion.main
+          id="main-content"
           key={currentSection}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{
-            duration: 0.3,
+            duration: animationsEnabled ? 0.3 : 0.01,
             ease: [0.25, 0.25, 0.25, 1],
           }}
           className="w-full"
           onAnimationComplete={() => setIsAnimating(false)}
+          tabIndex="-1"
+          role="main"
+          aria-label={`${sections[currentSection].name} ${language === "es" ? "sección" : "section"}`}
         >
           {sections[currentSection].component}
-        </motion.div>
+        </motion.main>
       </AnimatePresence>
+
+      {/* Accessibility Controls */}
+      <AccessibilityControls
+        theme={theme}
+        language={language}
+        onToggleAnimations={toggleAnimations}
+        animationsEnabled={animationsEnabled}
+      />
     </div>
   );
 }

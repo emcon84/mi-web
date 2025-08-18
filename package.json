@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@react-aria/focus": "^3.21.0",
+    "@react-aria/live-announcer": "^3.4.4",
+    "@react-aria/utils": "^3.30.0",
     "@reduxjs/toolkit": "^1.8.5",
     "daisyui": "^2.24.2",
     "dotenv": "^16.0.2",
