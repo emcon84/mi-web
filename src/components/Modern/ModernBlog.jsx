@@ -149,7 +149,7 @@ export const ModernBlog = ({
         type="blog"
       />
       <section
-        className="min-h-screen flex flex-col py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-32 pb-8 md:pb-12 overflow-y-auto"
+        className="min-h-screen flex flex-col py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-32 pb-32 md:pb-12 overflow-y-auto"
         style={{ maxHeight: "calc(100vh - 0px)" }}
         aria-labelledby="blog-title"
       >
