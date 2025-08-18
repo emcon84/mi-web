@@ -4,9 +4,14 @@ Allow: /
 # Sitemap
 Sitemap: https://emilianoconti.dev/sitemap.xml
 
-# Disallow specific paths if needed
-# Disallow: /admin/
-# Disallow: /private/
+# Allow all content
+Allow: /blog/
+Allow: /projects/
+Allow: /contact/
+Allow: /#blog
+Allow: /#projects
+Allow: /#skills
+Allow: /#contact
 
 # Crawl delay (optional)
 Crawl-delay: 1

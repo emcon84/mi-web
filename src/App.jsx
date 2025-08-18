@@ -5,6 +5,7 @@ import { ModernProjects } from "./components/Modern/ModernProjects";
 import { ModernSkills } from "./components/Modern/ModernSkills";
 import { ModernContact } from "./components/Modern/ModernContact";
 import { ModernNavigation } from "./components/Modern/ModernNavigation";
+import { ModernBlog } from "./components/Modern/ModernBlog";
 import { SEOHead } from "./components/SEO/SEOHead";
 import {
   SkipToContent,
@@ -47,6 +48,13 @@ function App() {
       return;
     }
 
+    // En la sección del blog (sección 3), siempre permitir scroll
+    if (currentSection === 3) {
+      document.body.classList.remove("overflow-hidden");
+      document.body.classList.add("allow-scroll");
+      return;
+    }
+
     // En desktop grande, controlar overflow durante animaciones
     if (isAnimating) {
       document.body.classList.remove("allow-scroll");
@@ -61,12 +69,18 @@ function App() {
       document.body.classList.remove("overflow-hidden");
       document.body.classList.add("allow-scroll");
     };
-  }, [isAnimating, isMobile]);
+  }, [isAnimating, isMobile, currentSection]);
 
   // Detectar cuando terminan las animaciones
   useEffect(() => {
     // En pantallas pequeñas, no controlar animaciones de overflow
     if (isMobile) return;
+
+    // En la sección del blog, no controlar animaciones de overflow
+    if (currentSection === 3) {
+      setIsAnimating(false);
+      return;
+    }
 
     setIsAnimating(true); // Activar control de overflow en cada cambio
 
@@ -138,6 +152,11 @@ function App() {
     },
     {
       id: 3,
+      name: language === "es" ? "Blog" : "Blog",
+      component: <ModernBlog language={language} theme={theme} />,
+    },
+    {
+      id: 4,
       name: language === "es" ? "Contacto" : "Contact",
       component: <ModernContact language={language} theme={theme} />,
     },
@@ -145,7 +164,7 @@ function App() {
 
   // SEO dinámico basado en la sección actual
   const getSEOData = () => {
-    const sectionNames = ["home", "skills", "projects", "contact"];
+    const sectionNames = ["home", "skills", "projects", "blog", "contact"];
     const currentSectionName = sectionNames[currentSection] || "home";
 
     const seoData = {
@@ -178,6 +197,16 @@ function App() {
           language === "es"
             ? "Explora mis proyectos destacados: aplicaciones React, sistemas de gestión, dashboards y soluciones web completas desarrolladas con las últimas tecnologías."
             : "Explore my featured projects: React applications, management systems, dashboards and complete web solutions developed with the latest technologies.",
+      },
+      blog: {
+        title:
+          language === "es"
+            ? "Blog | Emiliano Conti - Frontend Developer"
+            : "Blog | Emiliano Conti - Frontend Developer",
+        description:
+          language === "es"
+            ? "Artículos, tutoriales y reflexiones sobre desarrollo frontend, React, JavaScript y las últimas tendencias en tecnología web."
+            : "Articles, tutorials and thoughts about frontend development, React, JavaScript and the latest trends in web technology.",
       },
       contact: {
         title:
