@@ -17,7 +17,7 @@ export const BlogPost = ({ post, language = "es", theme = "dark", onBack }) => {
     document.body.classList.remove("overflow-hidden");
     document.body.classList.add("allow-scroll", "blog-view");
     document.getElementById("root").classList.add("blog-view");
-    
+
     // Add theme classes to body
     if (theme === "dark") {
       document.body.classList.add("dark-theme");
@@ -26,7 +26,7 @@ export const BlogPost = ({ post, language = "es", theme = "dark", onBack }) => {
       document.body.classList.add("light-theme");
       document.body.classList.remove("dark-theme");
     }
-    
+
     document.documentElement.style.overflow = "auto";
     document.body.style.overflow = "auto";
 
@@ -86,15 +86,15 @@ export const BlogPost = ({ post, language = "es", theme = "dark", onBack }) => {
         // Headers
         .replace(
           /^### (.*$)/gim,
-          `<h3 class="text-xl font-semibold mb-3 ${isDark ? 'text-white' : 'text-gray-900'}">$1</h3>`
+          `<h3 class="text-xl font-semibold mb-3 ${isDark ? "text-white" : "text-gray-900"}">$1</h3>`
         )
         .replace(
           /^## (.*$)/gim,
-          `<h2 class="text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'} border-b-2 border-blue-500 pb-2">$1</h2>`
+          `<h2 class="text-2xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"} border-b-2 border-blue-500 pb-2">$1</h2>`
         )
         .replace(
           /^# (.*$)/gim,
-          `<h1 class="text-3xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}">$1</h1>`
+          `<h1 class="text-3xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}">$1</h1>`
         )
 
         // Bloques de código
@@ -104,26 +104,26 @@ export const BlogPost = ({ post, language = "es", theme = "dark", onBack }) => {
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;");
-          return `<pre class="${isDark ? 'bg-gray-800 text-green-400' : 'bg-gray-100 text-gray-800'} p-4 rounded-lg overflow-x-auto my-4 border ${isDark ? 'border-gray-700' : 'border-gray-200'}"><code class="language-${lang || "text"}">${escapedCode}</code></pre>`;
+          return `<pre class="${isDark ? "bg-gray-800 text-green-400" : "bg-gray-100 text-gray-800"} p-4 rounded-lg overflow-x-auto my-4 border ${isDark ? "border-gray-700" : "border-gray-200"}"><code class="language-${lang || "text"}">${escapedCode}</code></pre>`;
         })
 
         // Código inline
         .replace(
           /`([^`]+)`/g,
-          `<code class="${isDark ? 'bg-gray-700 text-red-400' : 'bg-gray-100 text-red-600'} px-2 py-1 rounded text-sm font-mono">$1</code>`
+          `<code class="${isDark ? "bg-gray-700 text-red-400" : "bg-gray-100 text-red-600"} px-2 py-1 rounded text-sm font-mono">$1</code>`
         )
 
         // Bold y cursiva
         .replace(
           /\*\*(.*?)\*\*/g,
-          `<strong class="font-bold ${isDark ? 'text-white' : 'text-gray-900'}">$1</strong>`
+          `<strong class="font-bold ${isDark ? "text-white" : "text-gray-900"}">$1</strong>`
         )
         .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
 
         // Links
         .replace(
           /\[([^\]]+)\]\(([^)]+)\)/g,
-          `<a href="$2" target="_blank" rel="noopener noreferrer" class="${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-800'} hover:underline transition-colors">$1</a>`
+          `<a href="$2" target="_blank" rel="noopener noreferrer" class="${isDark ? "text-blue-400 hover:text-blue-300" : "text-blue-600 hover:text-blue-800"} hover:underline transition-colors">$1</a>`
         )
 
         // Listas
@@ -143,11 +143,11 @@ export const BlogPost = ({ post, language = "es", theme = "dark", onBack }) => {
 
           // Si contiene elementos de lista, envolver en <ul>
           if (paragraph.includes("<li>")) {
-            return `<ul class="list-disc list-inside mb-4 space-y-1 ${isDark ? 'text-gray-300' : 'text-gray-700'}">${paragraph}</ul>`;
+            return `<ul class="list-disc list-inside mb-4 space-y-1 ${isDark ? "text-gray-300" : "text-gray-700"}">${paragraph}</ul>`;
           }
 
           // Párrafo normal
-          return `<p class="mb-4 ${isDark ? 'text-gray-300' : 'text-gray-700'} leading-relaxed">${paragraph.replace(/\n/g, "<br>")}</p>`;
+          return `<p class="mb-4 ${isDark ? "text-gray-300" : "text-gray-700"} leading-relaxed">${paragraph.replace(/\n/g, "<br>")}</p>`;
         })
         .join("\n")
     );
@@ -170,7 +170,9 @@ export const BlogPost = ({ post, language = "es", theme = "dark", onBack }) => {
         category={post.category[language]}
       />
 
-      <div className={`min-h-screen py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-32 overflow-y-auto transition-colors duration-300`}>
+      <div
+        className={`min-h-screen py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-32 overflow-y-auto transition-colors duration-300`}
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -279,9 +281,11 @@ export const BlogPost = ({ post, language = "es", theme = "dark", onBack }) => {
           />
 
           {/* Article Footer */}
-          <footer className={`mt-12 pt-8 border-t transition-colors ${
-            theme === "dark" ? "border-gray-700" : "border-gray-200"
-          }`}>
+          <footer
+            className={`mt-12 pt-8 border-t transition-colors ${
+              theme === "dark" ? "border-gray-700" : "border-gray-200"
+            }`}
+          >
             <div className="text-center">
               <button
                 onClick={handleBack}

@@ -80,12 +80,22 @@ body.blog-view {
 
 /* Fondo específico para blog en modo claro */
 body.blog-view.light-theme {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%) !important;
+  background: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #e2e8f0 50%,
+    #f1f5f9 100%
+  ) !important;
 }
 
 /* Mantener el fondo original en modo oscuro */
 body.blog-view.dark-theme {
-  background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #0f172a 100%) !important;
+  background: linear-gradient(
+    135deg,
+    #0f172a 0%,
+    #1e40af 50%,
+    #0f172a 100%
+  ) !important;
 }
 
 #root.blog-view {
