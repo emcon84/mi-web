@@ -1,5 +1,6 @@
 export const tailwindMigrationArticle = {
   id: 1,
+  slug: "como-migre-de-css-a-tailwind-css-en-proyectos-react",
   title: {
     es: "Cómo Migré de CSS a Tailwind CSS en Proyectos React",
     en: "How I Migrated from CSS to Tailwind CSS in React Projects",
@@ -8,6 +9,8 @@ export const tailwindMigrationArticle = {
     es: "Mi experiencia personal migrando proyectos React de CSS tradicional a Tailwind CSS, los desafíos encontrados y las mejores prácticas aprendidas en el proceso.",
     en: "My personal experience migrating React projects from traditional CSS to Tailwind CSS, challenges encountered and best practices learned in the process.",
   },
+  image:
+    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
   content: {
     es: `La migración de CSS tradicional a Tailwind CSS puede parecer abrumadora al principio, pero los beneficios a largo plazo son enormes. En este artículo, compartiré mi experiencia migrando varios proyectos React y las lecciones aprendidas en el proceso.
 

@@ -21,6 +21,10 @@ export const getPostById = (id) => {
   return blogData.find((post) => post.id === id);
 };
 
+export const getPostBySlug = (slug) => {
+  return blogData.find((post) => post.slug === slug);
+};
+
 export const getPostsByCategory = (category) => {
   return blogData.filter(
     (post) =>

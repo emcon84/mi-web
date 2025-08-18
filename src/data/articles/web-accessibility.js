@@ -1,5 +1,6 @@
 export const webAccessibilityArticle = {
   id: 5,
+  slug: "accesibilidad-web-construyendo-para-todos",
   title: {
     es: "Accesibilidad Web: Construyendo para Todos",
     en: "Web Accessibility: Building for Everyone",
@@ -8,6 +9,8 @@ export const webAccessibilityArticle = {
     es: "Guía práctica para implementar accesibilidad web siguiendo las pautas WCAG, con ejemplos en React y técnicas para crear experiencias inclusivas.",
     en: "Practical guide to implementing web accessibility following WCAG guidelines, with React examples and techniques for creating inclusive experiences.",
   },
+  image:
+    "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
   content: {
     es: `La accesibilidad web no es una característica opcional, es un derecho fundamental. Cuando construimos aplicaciones accesibles, no solo ayudamos a personas con discapacidades, sino que mejoramos la experiencia para todos los usuarios.
 

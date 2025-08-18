@@ -19,18 +19,18 @@ body {
   font-family: "Montserrat", sans-serif;
   background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #0f172a 100%);
   overflow-x: hidden;
-  overflow-y: hidden; /* Iniciar con overflow oculto por defecto */
+  overflow-y: auto; /* Permitir scroll por defecto */
   transition: overflow 0.3s ease;
 }
 
-/* Solo aplicar restricciones de altura en pantallas grandes */
+/* Solo aplicar restricciones de altura en pantallas grandes Y cuando NO estamos en el blog */
 @media (min-width: 768px) and (min-height: 600px) {
-  body {
+  body:not(.blog-view) {
     height: 100vh;
     max-height: 100vh;
   }
 
-  #root {
+  #root:not(.blog-view) {
     max-height: 100vh;
     overflow: hidden;
   }
@@ -69,6 +69,18 @@ body.allow-scroll {
 /* Clase para controlar overflow durante animaciones */
 body.overflow-hidden {
   overflow-y: hidden !important;
+}
+
+/* Clase específica para el blog - siempre permitir scroll */
+body.blog-view {
+  overflow-y: auto !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+#root.blog-view {
+  max-height: none !important;
+  overflow: visible !important;
 }
 
 #root {

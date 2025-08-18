@@ -1,5 +1,6 @@
 export const performanceOptimizationArticle = {
   id: 3,
+  slug: "optimizacion-de-performance-en-react",
   title: {
     es: "Optimización de Performance en React",
     en: "Performance Optimization in React",
@@ -8,6 +9,8 @@ export const performanceOptimizationArticle = {
     es: "Técnicas avanzadas para optimizar el rendimiento de aplicaciones React, incluyendo memoización, lazy loading y mejores prácticas de renderizado.",
     en: "Advanced techniques to optimize React application performance, including memoization, lazy loading and rendering best practices.",
   },
+  image:
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
   content: {
     es: `La performance es crucial para una buena experiencia de usuario. En aplicaciones React complejas, optimizar el rendimiento puede marcar la diferencia entre una app fluida y una que frustra a los usuarios.
 

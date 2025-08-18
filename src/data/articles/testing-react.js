@@ -1,5 +1,6 @@
 export const testingReactArticle = {
   id: 6,
+  slug: "testing-en-react-jest-y-react-testing-library",
   title: {
     es: "Testing en React: Jest y React Testing Library",
     en: "Testing in React: Jest and React Testing Library",
@@ -8,6 +9,8 @@ export const testingReactArticle = {
     es: "Introducción práctica al testing en React, cubriendo unit tests, integration tests y mejores prácticas para mantener código confiable.",
     en: "Practical introduction to testing in React, covering unit tests, integration tests and best practices for maintaining reliable code.",
   },
+  image:
+    "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
   content: {
     es: `El testing es una parte fundamental del desarrollo profesional. Como desarrolladores, escribimos código que debe funcionar correctamente, ser mantenible y resistir cambios futuros. En este artículo, exploraremos cómo implementar testing efectivo en React usando Jest y React Testing Library.
 

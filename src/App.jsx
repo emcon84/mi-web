@@ -7,6 +7,7 @@ import { ModernContact } from "./components/Modern/ModernContact";
 import { ModernNavigation } from "./components/Modern/ModernNavigation";
 import { ModernBlog } from "./components/Modern/ModernBlog";
 import { SEOHead } from "./components/SEO/SEOHead";
+import { getPostBySlug } from "./data/blogData";
 import {
   SkipToContent,
   NavigationAnnouncer,
@@ -20,6 +21,7 @@ function App() {
   const [theme, setTheme] = useState("dark"); // "dark" or "light"
   const [isAnimating, setIsAnimating] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentArticleSlug, setCurrentArticleSlug] = useState(null);
 
   // Hooks de accesibilidad
   useFocusManagement();
@@ -112,12 +114,92 @@ function App() {
     return () => clearTimeout(timer);
   }, [isMobile]); // Dependencia en isMobile para reaccionar a cambios
 
+  // Handle URL routing for blog articles
+  useEffect(() => {
+    const handleRouting = () => {
+      const path = window.location.pathname;
+      const blogMatch = path.match(/^\/blog\/(.+)$/);
+
+      if (blogMatch) {
+        const slug = blogMatch[1];
+        setCurrentArticleSlug(slug);
+        setCurrentSection(3); // Blog section
+      } else if (path === "/blog") {
+        setCurrentArticleSlug(null);
+        setCurrentSection(3); // Blog section
+      } else {
+        setCurrentArticleSlug(null);
+        // Determine section based on path
+        if (path === "/" || path === "") {
+          setCurrentSection(0);
+        } else if (path === "/projects") {
+          setCurrentSection(1);
+        } else if (path === "/skills") {
+          setCurrentSection(2);
+        } else if (path === "/contact") {
+          setCurrentSection(4);
+        }
+      }
+    };
+
+    // Handle initial load
+    handleRouting();
+
+    // Handle browser back/forward
+    window.addEventListener("popstate", handleRouting);
+
+    return () => {
+      window.removeEventListener("popstate", handleRouting);
+    };
+  }, []);
+
+  // Update URL when section changes
+  const updateURL = (sectionIndex, slug = null) => {
+    let newPath = "";
+
+    if (slug) {
+      newPath = `/blog/${slug}`;
+    } else {
+      switch (sectionIndex) {
+        case 0:
+          newPath = "/";
+          break;
+        case 1:
+          newPath = "/projects";
+          break;
+        case 2:
+          newPath = "/skills";
+          break;
+        case 3:
+          newPath = "/blog";
+          break;
+        case 4:
+          newPath = "/contact";
+          break;
+        default:
+          newPath = "/";
+      }
+    }
+
+    if (window.location.pathname !== newPath) {
+      window.history.pushState({}, "", newPath);
+    }
+  };
+
   const navigateToSection = (sectionIndex) => {
-    if (sectionIndex >= 0 && sectionIndex < 4) {
-      // 4 sections total
+    if (sectionIndex >= 0 && sectionIndex < 5) {
+      // 5 sections total (0-4)
       setIsAnimating(true); // Activar control de overflow antes del cambio
       setCurrentSection(sectionIndex);
+      setCurrentArticleSlug(null); // Clear article when navigating to sections
+      updateURL(sectionIndex);
     }
+  };
+
+  const navigateToArticle = (slug) => {
+    setCurrentSection(3); // Blog section
+    setCurrentArticleSlug(slug);
+    updateURL(3, slug);
   };
 
   const toggleLanguage = () => {
@@ -153,7 +235,15 @@ function App() {
     {
       id: 3,
       name: language === "es" ? "Blog" : "Blog",
-      component: <ModernBlog language={language} theme={theme} />,
+      component: (
+        <ModernBlog
+          language={language}
+          theme={theme}
+          currentArticleSlug={currentArticleSlug}
+          onArticleSelect={navigateToArticle}
+          onBackToBlog={() => navigateToSection(3)}
+        />
+      ),
     },
     {
       id: 4,
