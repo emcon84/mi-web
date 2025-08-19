@@ -55,12 +55,32 @@ export const ModernBlog = ({
   // Si hay un post seleccionado, mostrar el componente BlogPost
   if (currentPost) {
     return (
-      <BlogPost
-        post={currentPost}
-        language={language}
-        theme={theme}
-        onBack={onBackToBlog || (() => setCurrentPost(null))}
-      />
+      <>
+        <SEOHead
+          title={
+            language === "es"
+              ? `${currentPost.title[language]} | Blog de Emiliano Conti`
+              : `${currentPost.title[language]} | Emiliano Conti's Blog`
+          }
+          description={currentPost.excerpt[language]}
+          keywords={`blog, frontend development, react, javascript, web development, programming, tutorials, tips, articles, emiliano conti, ${currentPost.tags.join(", ")}`}
+          image={currentPost.image}
+          language={language}
+          type="article"
+          isBlogPost={true}
+          blogPost={currentPost}
+          publishedTime={currentPost.publishedAt}
+          authors={["Emiliano Conti"]}
+          tags={currentPost.tags}
+          category={currentPost.category[language]}
+        />
+        <BlogPost
+          post={currentPost}
+          language={language}
+          theme={theme}
+          onBack={onBackToBlog || (() => setCurrentPost(null))}
+        />
+      </>
     );
   }
 

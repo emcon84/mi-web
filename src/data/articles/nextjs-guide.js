@@ -10,7 +10,7 @@ export const nextjsGuideArticle = {
     en: "Explore the new features of Next.js 14 and App Router, including Server Components, streaming, and best practices for modern applications.",
   },
   image:
-    "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80",
   content: {
     es: `Next.js 14 introduce el App Router como la nueva forma estándar de estructurar aplicaciones. Este nuevo paradigma aprovecha React Server Components y ofrece un rendimiento superior y una mejor experiencia de desarrollo.
 

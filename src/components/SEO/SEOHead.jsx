@@ -5,7 +5,7 @@ export const SEOHead = ({
   description = "Portfolio de Emiliano Conti, Frontend Developer especializado en React, JavaScript y desarrollo web moderno. Más de 8 años de experiencia creando aplicaciones web innovadoras.",
   keywords = "frontend developer, react developer, javascript, web development, portfolio, emiliano conti, desarrollador frontend, programador web",
   image = "/img/yo.jpeg",
-  url = "https://emilianoconti.dev",
+  url = "https://www.emilianoconti.com",
   language = "es",
   type = "website",
   // Blog-specific props
@@ -19,39 +19,11 @@ export const SEOHead = ({
 }) => {
   const currentUrl = typeof window !== "undefined" ? window.location.href : url;
   const currentLang = language === "es" ? "es-AR" : "en-US";
-
-  // Títulos específicos por sección
-  const sectionTitles = {
-    home: language === "es" ? "Inicio" : "Home",
-    projects: language === "es" ? "Proyectos" : "Projects",
-    skills: language === "es" ? "Tecnologías" : "Technologies",
-    contact: language === "es" ? "Contacto" : "Contact",
-    blog: language === "es" ? "Blog & Artículos" : "Blog & Articles",
-  };
-
-  // Descripciones específicas por sección
-  const sectionDescriptions = {
-    home:
-      language === "es"
-        ? "Frontend Developer con más de 8 años de experiencia en React, JavaScript y desarrollo web moderno. Especializado en crear aplicaciones web innovadoras y accesibles."
-        : "Frontend Developer with 8+ years of experience in React, JavaScript and modern web development. Specialized in creating innovative and accessible web applications.",
-    projects:
-      language === "es"
-        ? "Explora mis proyectos destacados: aplicaciones React, sistemas de gestión, dashboards y soluciones web completas desarrolladas con las últimas tecnologías."
-        : "Explore my featured projects: React applications, management systems, dashboards and complete web solutions developed with the latest technologies.",
-    skills:
-      language === "es"
-        ? "Tecnologías y herramientas que domino: React, JavaScript, TypeScript, Node.js, MongoDB, CSS, Tailwind, Next.js y más. Stack completo de desarrollo frontend."
-        : "Technologies and tools I master: React, JavaScript, TypeScript, Node.js, MongoDB, CSS, Tailwind, Next.js and more. Complete frontend development stack.",
-    contact:
-      language === "es"
-        ? "¿Tienes un proyecto en mente? Contacta conmigo para discutir cómo puedo ayudarte a llevarlo a cabo. Disponible para proyectos remotos."
-        : "Have a project in mind? Contact me to discuss how I can help you bring it to life. Available for remote projects.",
-    blog:
-      language === "es"
-        ? "Artículos sobre desarrollo frontend, React, JavaScript y las últimas tendencias en tecnología web. Tutoriales, tips y experiencias de un desarrollador con 8+ años de experiencia."
-        : "Articles about frontend development, React, JavaScript and the latest trends in web technology. Tutorials, tips and experiences from a developer with 8+ years of experience.",
-  };
+  
+  // Ensure image URL is absolute for social media sharing
+  const absoluteImageUrl = image.startsWith('http') 
+    ? image 
+    : `${url}${image.startsWith('/') ? image : `/${image}`}`;
 
   // Blog-specific meta data
   const blogKeywords =
@@ -107,7 +79,10 @@ export const SEOHead = ({
       <meta property="og:type" content={isBlogPost ? "article" : type} />
       <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={absoluteImageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={finalTitle} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content="Emiliano Conti Portfolio" />
       <meta property="og:locale" content={currentLang} />
@@ -116,8 +91,14 @@ export const SEOHead = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={absoluteImageUrl} />
+      <meta name="twitter:image:alt" content={finalTitle} />
       <meta name="twitter:creator" content="@emcon84" />
+      <meta name="twitter:site" content="@emcon84" />
+      
+      {/* WhatsApp optimizations */}
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta name="twitter:image:src" content={absoluteImageUrl} />
 
       {/* Canonical URL */}
       <link rel="canonical" href={currentUrl} />
@@ -238,7 +219,7 @@ export const SEOHead = ({
               "@id": currentUrl,
             },
             url: currentUrl,
-            image: image,
+            image: absoluteImageUrl,
             keywords: tags.join(", "),
             articleSection: category,
             inLanguage: currentLang,

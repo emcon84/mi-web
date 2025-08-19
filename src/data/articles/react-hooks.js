@@ -10,7 +10,7 @@ export const reactHooksArticle = {
     en: "Complete guide to React Hooks, from basics like useState and useEffect to creating reusable custom hooks for complex logic.",
   },
   image:
-    "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630&q=80",
   content: {
     es: `React Hooks han revolucionado la forma en que escribimos componentes React. Han permitido que los componentes funcionales tengan estado y efectos secundarios, simplificando significativamente el código y mejorando la reutilización de lógica.
 
