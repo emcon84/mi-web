@@ -224,13 +224,13 @@ function App() {
     },
     {
       id: 1,
-      name: language === "es" ? "Habilidades" : "Skills",
-      component: <ModernSkills language={language} theme={theme} />,
+      name: language === "es" ? "Proyectos" : "Projects",
+      component: <ModernProjects language={language} theme={theme} />,
     },
     {
       id: 2,
-      name: language === "es" ? "Proyectos" : "Projects",
-      component: <ModernProjects language={language} theme={theme} />,
+      name: language === "es" ? "Habilidades" : "Skills",
+      component: <ModernSkills language={language} theme={theme} />,
     },
     {
       id: 3,
