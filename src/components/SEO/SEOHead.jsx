@@ -25,6 +25,14 @@ export const SEOHead = ({
     ? image 
     : `${url}${image.startsWith('/') ? image : `/${image}`}`;
 
+  // Descripciones específicas por sección
+  const sectionDescriptions = {
+    blog:
+      language === "es"
+        ? "Artículos sobre desarrollo frontend, React, JavaScript y las últimas tendencias en tecnología web. Tutoriales, tips y experiencias de un desarrollador con 8+ años de experiencia."
+        : "Articles about frontend development, React, JavaScript and the latest trends in web technology. Tutorials, tips and experiences from a developer with 8+ years of experience.",
+  };
+
   // Blog-specific meta data
   const blogKeywords =
     isBlogPost && blogPost
