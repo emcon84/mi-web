@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export const SocialMediaPreview = ({ 
-  title, 
-  description, 
-  image, 
+export const SocialMediaPreview = ({
+  title,
+  description,
+  image,
   url,
-  language = "es" 
+  language = "es",
 }) => {
   const [activeTab, setActiveTab] = useState("facebook");
 
@@ -19,11 +19,7 @@ export const SocialMediaPreview = ({
 
   const FacebookCard = () => (
     <div className="border border-gray-300 rounded-lg overflow-hidden bg-white max-w-md">
-      <img 
-        src={image} 
-        alt={title}
-        className="w-full h-48 object-cover"
-      />
+      <img src={image} alt={title} className="w-full h-48 object-cover" />
       <div className="p-3">
         <div className="text-xs text-gray-500 uppercase mb-1">
           {url?.replace(/https?:\/\//, "")}
@@ -31,27 +27,19 @@ export const SocialMediaPreview = ({
         <h3 className="font-bold text-gray-900 text-sm mb-1 line-clamp-2">
           {title}
         </h3>
-        <p className="text-gray-600 text-xs line-clamp-2">
-          {description}
-        </p>
+        <p className="text-gray-600 text-xs line-clamp-2">{description}</p>
       </div>
     </div>
   );
 
   const TwitterCard = () => (
     <div className="border border-gray-300 rounded-2xl overflow-hidden bg-white max-w-md">
-      <img 
-        src={image} 
-        alt={title}
-        className="w-full h-48 object-cover"
-      />
+      <img src={image} alt={title} className="w-full h-48 object-cover" />
       <div className="p-3">
         <h3 className="font-bold text-gray-900 text-sm mb-1 line-clamp-2">
           {title}
         </h3>
-        <p className="text-gray-600 text-xs line-clamp-2 mb-2">
-          {description}
-        </p>
+        <p className="text-gray-600 text-xs line-clamp-2 mb-2">{description}</p>
         <div className="text-xs text-gray-500">
           🔗 {url?.replace(/https?:\/\//, "")}
         </div>
@@ -61,18 +49,12 @@ export const SocialMediaPreview = ({
 
   const LinkedInCard = () => (
     <div className="border border-gray-300 rounded-lg overflow-hidden bg-white max-w-md">
-      <img 
-        src={image} 
-        alt={title}
-        className="w-full h-48 object-cover"
-      />
+      <img src={image} alt={title} className="w-full h-48 object-cover" />
       <div className="p-3">
         <h3 className="font-bold text-gray-900 text-sm mb-1 line-clamp-2">
           {title}
         </h3>
-        <p className="text-gray-600 text-xs line-clamp-2 mb-2">
-          {description}
-        </p>
+        <p className="text-gray-600 text-xs line-clamp-2 mb-2">{description}</p>
         <div className="text-xs text-gray-500">
           {url?.replace(/https?:\/\//, "")}
         </div>
@@ -83,11 +65,7 @@ export const SocialMediaPreview = ({
   const WhatsAppCard = () => (
     <div className="bg-gray-100 p-3 rounded-lg max-w-md">
       <div className="border border-gray-300 rounded-lg overflow-hidden bg-white">
-        <img 
-          src={image} 
-          alt={title}
-          className="w-full h-32 object-cover"
-        />
+        <img src={image} alt={title} className="w-full h-32 object-cover" />
         <div className="p-2">
           <h3 className="font-bold text-gray-900 text-xs mb-1 line-clamp-1">
             {title}
@@ -121,11 +99,11 @@ export const SocialMediaPreview = ({
   return (
     <div className="p-6 bg-gray-50 rounded-xl">
       <h3 className="text-lg font-bold mb-4 text-gray-800">
-        {language === "es" 
-          ? "Vista previa en redes sociales" 
+        {language === "es"
+          ? "Vista previa en redes sociales"
           : "Social media preview"}
       </h3>
-      
+
       {/* Tabs */}
       <div className="flex space-x-2 mb-4">
         {tabs.map((tab) => (
@@ -162,7 +140,12 @@ export const SocialMediaPreview = ({
           <li>• og:title, og:description, og:image</li>
           <li>• twitter:card, twitter:title, twitter:description</li>
           <li>• og:url, og:site_name</li>
-          <li>• {language === "es" ? "Imagen optimizada 1200x630px" : "Optimized image 1200x630px"}</li>
+          <li>
+            •{" "}
+            {language === "es"
+              ? "Imagen optimizada 1200x630px"
+              : "Optimized image 1200x630px"}
+          </li>
         </ul>
       </div>
     </div>

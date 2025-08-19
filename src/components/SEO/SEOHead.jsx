@@ -19,11 +19,11 @@ export const SEOHead = ({
 }) => {
   const currentUrl = typeof window !== "undefined" ? window.location.href : url;
   const currentLang = language === "es" ? "es-AR" : "en-US";
-  
+
   // Ensure image URL is absolute for social media sharing
-  const absoluteImageUrl = image.startsWith('http') 
-    ? image 
-    : `${url}${image.startsWith('/') ? image : `/${image}`}`;
+  const absoluteImageUrl = image.startsWith("http")
+    ? image
+    : `${url}${image.startsWith("/") ? image : `/${image}`}`;
 
   // Descripciones específicas por sección
   const sectionDescriptions = {
@@ -103,7 +103,7 @@ export const SEOHead = ({
       <meta name="twitter:image:alt" content={finalTitle} />
       <meta name="twitter:creator" content="@emcon84" />
       <meta name="twitter:site" content="@emcon84" />
-      
+
       {/* WhatsApp optimizations */}
       <meta property="og:image:type" content="image/jpeg" />
       <meta name="twitter:image:src" content={absoluteImageUrl} />
