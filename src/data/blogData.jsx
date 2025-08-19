@@ -5,9 +5,11 @@ import { performanceOptimizationArticle } from "./articles/performance-optimizat
 import { nextjsGuideArticle } from "./articles/nextjs-guide.js";
 import { webAccessibilityArticle } from "./articles/web-accessibility.js";
 import { testingReactArticle } from "./articles/testing-react.js";
+import { seoVercelBlogArticle } from "./articles/seo-vercel-spa.js";
 
 // Blog data array
 export const blogData = [
+  seoVercelBlogArticle, // Nuevo artículo destacado primero
   tailwindMigrationArticle,
   reactHooksArticle,
   performanceOptimizationArticle,
