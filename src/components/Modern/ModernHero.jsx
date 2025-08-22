@@ -216,7 +216,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
                   : "from-gray-800 via-blue-600 to-blue-700"
               }`}
             >
-              Frontend
+              Sofware
             </motion.span>
             <br />
             <motion.span
@@ -229,7 +229,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
                   : "from-blue-600 to-cyan-600"
               }`}
             >
-              Developer
+              Engineer
             </motion.span>
           </h1>
         </motion.div>
@@ -256,7 +256,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
         </motion.div>
 
         {/* Tech Stack Pills */}
-        <motion.div variants={itemVariants} className="mb-12 hidden md:block">
+        {/* <motion.div variants={itemVariants} className="mb-12 hidden md:block">
           <div className="flex flex-wrap justify-center gap-3">
             {["React", "Next.js", "TypeScript", "Tailwind", "Node.js"].map(
               (tech, index) => (
@@ -277,7 +277,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
               )
             )}
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* CTA Buttons */}
         <motion.div variants={itemVariants} className="mb-8 md:mb-12">
