@@ -1,45 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <!-- Homepage -->
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Página principal -->
   <url>
-    <loc>https://emilianoconti.dev/</loc>
-    <lastmod>2025-01-19</lastmod>
+    <loc>https://www.emilianoconti.com/</loc>
+    <lastmod>2025-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://emilianoconti.dev/?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://emilianoconti.dev/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/?lang=en"/>
   </url>
-  
-  <!-- Skills Section -->
+
+  <!-- Sección Proyectos -->
   <url>
-    <loc>https://emilianoconti.dev/#skills</loc>
+    <loc>https://www.emilianoconti.com/projects</loc>
+    <lastmod>2025-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/projects?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/projects?lang=en"/>
+  </url>
+
+  <!-- Sección Habilidades -->
+  <url>
+    <loc>https://www.emilianoconti.com/skills</loc>
+    <lastmod>2025-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/skills?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/skills?lang=en"/>
+  </url>
+
+  <!-- Sección Blog -->
+  <url>
+    <loc>https://www.emilianoconti.com/blog</loc>
+    <lastmod>2025-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/blog?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/blog?lang=en"/>
+  </url>
+
+  <!-- Sección Contacto -->
+  <url>
+    <loc>https://www.emilianoconti.com/contact</loc>
+    <lastmod>2025-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/contact?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/contact?lang=en"/>
+  </url>
+
+  <!-- Artículos del Blog -->
+  
+  <!-- Artículo: SEO, URLs Dinámicas y Social Media en una SPA React con Vercel -->
+  <url>
+    <loc>https://www.emilianoconti.com/blog/seo-urls-dinamicas-vercel-spa-react</loc>
     <lastmod>2025-01-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://emilianoconti.dev/#skills?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://emilianoconti.dev/#skills?lang=en" />
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80</image:loc>
+      <image:title>SEO, URLs Dinámicas y Social Media en una SPA React con Vercel</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/blog/seo-urls-dinamicas-vercel-spa-react?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/blog/seo-urls-dinamicas-vercel-spa-react?lang=en"/>
   </url>
-  
-  <!-- Projects Section -->
+
+  <!-- Artículo: Migración de CSS a Tailwind CSS -->
   <url>
-    <loc>https://emilianoconti.dev/#projects</loc>
-    <lastmod>2025-01-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://emilianoconti.dev/#projects?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://emilianoconti.dev/#projects?lang=en" />
-  </url>
-  
-  <!-- Contact Section -->
-  <url>
-    <loc>https://emilianoconti.dev/#contact</loc>
-    <lastmod>2025-01-19</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.emilianoconti.com/blog/como-migre-de-css-a-tailwind-css-en-proyectos-react</loc>
+    <lastmod>2024-12-15</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://emilianoconti.dev/#contact?lang=es" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://emilianoconti.dev/#contact?lang=en" />
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80</image:loc>
+      <image:title>Cómo Migré de CSS a Tailwind CSS en Proyectos React</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/blog/como-migre-de-css-a-tailwind-css-en-proyectos-react?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/blog/como-migre-de-css-a-tailwind-css-en-proyectos-react?lang=en"/>
   </url>
-  
+
+  <!-- Artículo: React Hooks Guía Completa -->
+  <url>
+    <loc>https://www.emilianoconti.com/blog/react-hooks-guia-completa</loc>
+    <lastmod>2024-11-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80</image:loc>
+      <image:title>React Hooks: Guía Completa y Mejores Prácticas</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/blog/react-hooks-guia-completa?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/blog/react-hooks-guia-completa?lang=en"/>
+  </url>
+
+  <!-- Artículo: Optimización de Performance -->
+  <url>
+    <loc>https://www.emilianoconti.com/blog/optimizacion-performance-react</loc>
+    <lastmod>2024-10-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80</image:loc>
+      <image:title>Optimización de Performance en React: Técnicas Avanzadas</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/blog/optimizacion-performance-react?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/blog/optimizacion-performance-react?lang=en"/>
+  </url>
+
+  <!-- Artículo: Next.js Guía -->
+  <url>
+    <loc>https://www.emilianoconti.com/blog/nextjs-13-guia-completa</loc>
+    <lastmod>2024-09-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80</image:loc>
+      <image:title>Next.js 13: Guía Completa del App Router</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/blog/nextjs-13-guia-completa?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/blog/nextjs-13-guia-completa?lang=en"/>
+  </url>
+
+  <!-- Artículo: Accesibilidad Web -->
+  <url>
+    <loc>https://www.emilianoconti.com/blog/accesibilidad-web-desarrollo-frontend</loc>
+    <lastmod>2024-08-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80</image:loc>
+      <image:title>Accesibilidad Web: Guía Práctica para Desarrolladores Frontend</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/blog/accesibilidad-web-desarrollo-frontend?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/blog/accesibilidad-web-desarrollo-frontend?lang=en"/>
+  </url>
+
+  <!-- Artículo: Testing en React -->
+  <url>
+    <loc>https://www.emilianoconti.com/blog/testing-react-jest-testing-library</loc>
+    <lastmod>2024-07-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80</image:loc>
+      <image:title>Testing en React: Jest y Testing Library</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/blog/testing-react-jest-testing-library?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/blog/testing-react-jest-testing-library?lang=en"/>
+  </url>
+
 </urlset>

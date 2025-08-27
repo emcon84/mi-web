@@ -2,21 +2,28 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://emilianoconti.dev/sitemap.xml
+Sitemap: https://www.emilianoconti.com/sitemap.xml
 
-# Allow all content
+# Allow all main content
 Allow: /blog/
-Allow: /projects/
-Allow: /contact/
-Allow: /#blog
-Allow: /#projects
-Allow: /#skills
-Allow: /#contact
+Allow: /projects
+Allow: /skills
+Allow: /contact
+Allow: /blog/*
 
-# Crawl delay (optional)
+# Allow specific blog articles
+Allow: /blog/seo-urls-dinamicas-vercel-spa-react
+Allow: /blog/como-migre-de-css-a-tailwind-css-en-proyectos-react
+Allow: /blog/react-hooks-guia-completa
+Allow: /blog/optimizacion-performance-react
+Allow: /blog/nextjs-13-guia-completa
+Allow: /blog/accesibilidad-web-desarrollo-frontend
+Allow: /blog/testing-react-jest-testing-library
+
+# Crawl delay for respectful crawling
 Crawl-delay: 1
 
-# Specific rules for search engines
+# Specific rules for major search engines
 User-agent: Googlebot
 Allow: /
 
@@ -25,3 +32,13 @@ Allow: /
 
 User-agent: Slurp
 Allow: /
+
+# Social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Host directive
+Host: https://www.emilianoconti.com
