@@ -56,6 +56,34 @@
 
   <!-- Artículos del Blog -->
   
+  <!-- Artículo: ¿Cómo Crear una Página Web Profesional? Guía Completa 2025 -->
+  <url>
+    <loc>https://www.emilianoconti.com/blog/como-crear-pagina-web-profesional-guia-completa</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80</image:loc>
+      <image:title>¿Cómo Crear una Página Web Profesional? Guía Completa 2025</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/blog/como-crear-pagina-web-profesional-guia-completa?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/blog/como-crear-pagina-web-profesional-guia-completa?lang=en"/>
+  </url>
+
+  <!-- Artículo: Los 7 Pasos Principales para Diseñar un Sitio Web Exitoso -->
+  <url>
+    <loc>https://www.emilianoconti.com/blog/7-pasos-principales-disenar-sitio-web-profesional</loc>
+    <lastmod>2025-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1559028006-448665bd7c7f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80</image:loc>
+      <image:title>Los 7 Pasos Principales para Diseñar un Sitio Web Exitoso</image:title>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.emilianoconti.com/blog/7-pasos-principales-disenar-sitio-web-profesional?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.emilianoconti.com/blog/7-pasos-principales-disenar-sitio-web-profesional?lang=en"/>
+  </url>
+
   <!-- Artículo: SEO, URLs Dinámicas y Social Media en una SPA React con Vercel -->
   <url>
     <loc>https://www.emilianoconti.com/blog/seo-urls-dinamicas-vercel-spa-react</loc>

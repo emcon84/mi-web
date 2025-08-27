@@ -6,9 +6,13 @@ import { nextjsGuideArticle } from "./articles/nextjs-guide.js";
 import { webAccessibilityArticle } from "./articles/web-accessibility.js";
 import { testingReactArticle } from "./articles/testing-react.js";
 import { seoVercelBlogArticle } from "./articles/seo-vercel-spa.js";
+import { comoCrearPaginaWebProfesionalArticle } from "./articles/como-crear-pagina-web-profesional.js";
+import { sietepasosDisenoWebArticle } from "./articles/7-pasos-diseno-web.js";
 
 // Blog data array
 export const blogData = [
+  comoCrearPaginaWebProfesionalArticle, // Nuevo artículo destacado
+  sietepasosDisenoWebArticle, // Nuevo artículo destacado
   seoVercelBlogArticle, // Nuevo artículo destacado primero
   tailwindMigrationArticle,
   reactHooksArticle,
