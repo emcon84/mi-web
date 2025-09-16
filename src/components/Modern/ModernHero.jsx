@@ -282,7 +282,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
         {/* CTA Buttons */}
         <motion.div variants={itemVariants} className="mb-8 md:mb-12">
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center px-4">
-            <motion.button
+            {/* <motion.button
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 2.0, duration: 0.5 }}
@@ -293,7 +293,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
             >
               <HiMail className="text-lg md:text-xl" />
               {language === "es" ? "Contactame" : "Get In Touch"}
-            </motion.button>
+            </motion.button> */}
 
             <motion.a
               href="/src/assets/doc/Emiliano-contiCV.pdf"
