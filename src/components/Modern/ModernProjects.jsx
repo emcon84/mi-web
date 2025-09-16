@@ -1,10 +1,21 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HiExternalLink, HiCode, HiEye } from "react-icons/hi";
 
 export const ModernProjects = ({ language = "es", theme = "dark" }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [hoveredProject, setHoveredProject] = useState(null);
+
+  // Habilitar scroll para esta sección
+  useEffect(() => {
+    document.body.classList.remove("overflow-hidden");
+    document.body.classList.add("allow-scroll");
+    document.getElementById("root").classList.add("projects-view");
+
+    return () => {
+      document.getElementById("root").classList.remove("projects-view");
+    };
+  }, []);
 
   // Proyectos reales de Emiliano
   const projectsData = [
@@ -71,6 +82,28 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
       link: "https://dashboar-theme.vercel.app/",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     },
+    {
+      name: "MSK web blog",
+      company: "MSK Latam",
+      image: "/img/Msk-web.png",
+      description: {
+        es: "Desarrollo, reestructuración, maquetado y mantenimiento web de la empresa. Realizo la creación de nuevas secciones del proyecto, refactorizando todo el proyecto usando tecnicas de clean code y mejores prácticas. Reconecto todos los endpoints y servicios con el backend. También asesoro en el diseño y las buenas prácticas de creación de componentes reutilizables para el proyecto, siendo referente en este proceso. Stack utilizado, Nextjs 14 con Tailwind CSS y TypeScript. El proyecto se encuentra en producción.",
+        en: "Development, restructuring, layout and web maintenance of the company. Currently, the creation of new sections of the project was carried out, refactored the entire project using clean code techniques and best practices. Reconnected all endpoints and services with the backend. Also advised on the design and best practices for creating reusable components for the project, being a reference in the process. The stack used is Nextjs 14 with Tailwind CSS and TypeScript. The project is in production.",
+      },
+      link: "https://msklatam.com/",
+      technologies: ["Nextjs", "TypeScript", "Tailwind CSS"],
+    },
+    {
+      name: "NPS widget App",
+      company: "Personal",
+      image: "/img/nps-widget.png",
+      description: {
+        es: "Creador de widgets NPS para sitios web. El proyecto permite a los usuarios generar y personalizar widgets mediante un diseñador visual, seleccionar componentes que tendran los widgets, copiar codigo para embeberlo dentro de cualquier aplicacion. Es un proyecto personal que surgio de ideas en trabajos que realice, y quise plasmarlo en el proyecto.",
+        en: "NPS widget creator for websites. The project allows users to generate and customize widgets through a visual designer, select components that the widgets will have, and copy code to embed it within any application. It is a personal project that arose from ideas in work I did, and I wanted to capture it in the project.",
+      },
+      link: "https://nps-widget.vercel.app",
+      technologies: ["Nextjs", "TypeScript", "Tailwind CSS"],
+    },
   ];
 
   // Convertir proyectos con descripción según idioma
@@ -124,7 +157,12 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-32 pb-8 md:pb-12 mb-16 lg:mb-0">
+    <section
+      className="min-h-screen flex flex-col py-8 md:py-12 px-4 md:px-6 pt-20 md:pt-32 pb-32 md:pb-12 overflow-y-auto"
+      style={{ maxHeight: "calc(100vh - 0px)" }}
+      aria-labelledby="projects-title"
+      role="main"
+    >
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -136,7 +174,10 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
           variants={itemVariants}
           className="text-center mb-6 md:mb-8"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+          <h2
+            id="projects-title"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3"
+          >
             <span
               className={`bg-gradient-to-r bg-clip-text text-transparent ${
                 theme === "dark"
@@ -429,6 +470,6 @@ export const ModernProjects = ({ language = "es", theme = "dark" }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 };
