@@ -245,11 +245,11 @@ function App() {
         />
       ),
     },
-    {
-      id: 4,
-      name: language === "es" ? "Contacto" : "Contact",
-      component: <ModernContact language={language} theme={theme} />,
-    },
+    // {
+    //   id: 4,
+    //   name: language === "es" ? "Contacto" : "Contact",
+    //   component: <ModernContact language={language} theme={theme} />,
+    // },
   ];
 
   // SEO dinámico basado en la sección actual
@@ -298,16 +298,16 @@ function App() {
             ? "Artículos, tutoriales y reflexiones sobre desarrollo frontend, React, JavaScript y las últimas tendencias en tecnología web."
             : "Articles, tutorials and thoughts about frontend development, React, JavaScript and the latest trends in web technology.",
       },
-      contact: {
-        title:
-          language === "es"
-            ? "Contacto | Emiliano Conti - Frontend Developer"
-            : "Contact | Emiliano Conti - Frontend Developer",
-        description:
-          language === "es"
-            ? "¿Tienes un proyecto en mente? Contacta conmigo para discutir cómo puedo ayudarte a llevarlo a cabo. Disponible para proyectos remotos."
-            : "Have a project in mind? Contact me to discuss how I can help you bring it to life. Available for remote projects.",
-      },
+      // contact: {
+      //   title:
+      //     language === "es"
+      //       ? "Contacto | Emiliano Conti - Frontend Developer"
+      //       : "Contact | Emiliano Conti - Frontend Developer",
+      //   description:
+      //     language === "es"
+      //       ? "¿Tienes un proyecto en mente? Contacta conmigo para discutir cómo puedo ayudarte a llevarlo a cabo. Disponible para proyectos remotos."
+      //       : "Have a project in mind? Contact me to discuss how I can help you bring it to life. Available for remote projects.",
+      // },
     };
 
     return seoData[currentSectionName] || seoData.home;
