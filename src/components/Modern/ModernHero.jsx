@@ -216,7 +216,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
                   : "from-gray-800 via-blue-600 to-blue-700"
               }`}
             >
-              Software
+              Sotware
             </motion.span>
             <br />
             <motion.span
