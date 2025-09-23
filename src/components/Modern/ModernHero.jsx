@@ -216,7 +216,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
                   : "from-gray-800 via-blue-600 to-blue-700"
               }`}
             >
-              Sofware
+              Software
             </motion.span>
             <br />
             <motion.span
@@ -296,7 +296,7 @@ export const ModernHero = ({ onNavigate, language = "es", theme = "dark" }) => {
             </motion.button> */}
 
             <motion.a
-              href="/src/assets/doc/Emiliano-contiCV.pdf"
+              href="/Emiliano-contiCV.pdf"
               download
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
